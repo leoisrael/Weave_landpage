@@ -1,137 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weave - O Software que Substitui Hardware de Áudio</title>
-    <meta name="description" content="Streaming de áudio entre PCs via rede local. Zero cabos, zero hardware adicional. Substitui mixers físicos por uma fração do preço.">
+    <title>Trovul - O Software que Substitui Hardware de Áudio</title>
+    <meta name="description"
+        content="Streaming de áudio entre PCs via rede local. Zero cabos, zero hardware adicional. Substitui mixers físicos por uma fração do preço.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/mobile.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- SVG Icon Definitions -->
     <svg style="display: none;">
         <defs>
             <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#8b5cf6"/>
-                <stop offset="100%" style="stop-color:#06b6d4"/>
+                <stop offset="0%" style="stop-color:#8b5cf6" />
+                <stop offset="100%" style="stop-color:#06b6d4" />
             </linearGradient>
         </defs>
         <!-- Audio/Speaker -->
         <symbol id="icon-audio" viewBox="0 0 24 24">
-            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
         </symbol>
         <!-- Search/Discovery -->
         <symbol id="icon-search" viewBox="0 0 24 24">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="m21 21-4.3-4.3"/>
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
         </symbol>
         <!-- Headphones -->
         <symbol id="icon-headphones" viewBox="0 0 24 24">
-            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+            <path
+                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
         </symbol>
         <!-- Chart/Monitor -->
         <symbol id="icon-chart" viewBox="0 0 24 24">
-            <path d="M3 3v18h18"/>
-            <path d="m19 9-5 5-4-4-3 3"/>
+            <path d="M3 3v18h18" />
+            <path d="m19 9-5 5-4-4-3 3" />
         </symbol>
         <!-- Sliders/Mixer -->
         <symbol id="icon-sliders" viewBox="0 0 24 24">
-            <line x1="4" x2="4" y1="21" y2="14"/>
-            <line x1="4" x2="4" y1="10" y2="3"/>
-            <line x1="12" x2="12" y1="21" y2="12"/>
-            <line x1="12" x2="12" y1="8" y2="3"/>
-            <line x1="20" x2="20" y1="21" y2="16"/>
-            <line x1="20" x2="20" y1="12" y2="3"/>
-            <line x1="2" x2="6" y1="14" y2="14"/>
-            <line x1="10" x2="14" y1="8" y2="8"/>
-            <line x1="18" x2="22" y1="16" y2="16"/>
+            <line x1="4" x2="4" y1="21" y2="14" />
+            <line x1="4" x2="4" y1="10" y2="3" />
+            <line x1="12" x2="12" y1="21" y2="12" />
+            <line x1="12" x2="12" y1="8" y2="3" />
+            <line x1="20" x2="20" y1="21" y2="16" />
+            <line x1="20" x2="20" y1="12" y2="3" />
+            <line x1="2" x2="6" y1="14" y2="14" />
+            <line x1="10" x2="14" y1="8" y2="8" />
+            <line x1="18" x2="22" y1="16" y2="16" />
         </symbol>
         <!-- Target/Routing -->
         <symbol id="icon-target" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <circle cx="12" cy="12" r="6"/>
-            <circle cx="12" cy="12" r="2"/>
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="2" />
         </symbol>
         <!-- Gamepad -->
         <symbol id="icon-gamepad" viewBox="0 0 24 24">
-            <line x1="6" x2="10" y1="12" y2="12"/>
-            <line x1="8" x2="8" y1="10" y2="14"/>
-            <circle cx="17" cy="10" r="1"/>
-            <circle cx="15" cy="14" r="1"/>
-            <path d="M6 6h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
+            <line x1="6" x2="10" y1="12" y2="12" />
+            <line x1="8" x2="8" y1="10" y2="14" />
+            <circle cx="17" cy="10" r="1" />
+            <circle cx="15" cy="14" r="1" />
+            <path d="M6 6h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
         </symbol>
         <!-- Mic/Podcast -->
         <symbol id="icon-mic" viewBox="0 0 24 24">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" x2="12" y1="19" y2="22"/>
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+            <line x1="12" x2="12" y1="19" y2="22" />
         </symbol>
         <!-- Building/Corporate -->
         <symbol id="icon-building" viewBox="0 0 24 24">
-            <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/>
-            <path d="M9 22v-4h6v4"/>
-            <path d="M8 6h.01"/>
-            <path d="M16 6h.01"/>
-            <path d="M12 6h.01"/>
-            <path d="M12 10h.01"/>
-            <path d="M12 14h.01"/>
-            <path d="M16 10h.01"/>
-            <path d="M16 14h.01"/>
-            <path d="M8 10h.01"/>
-            <path d="M8 14h.01"/>
+            <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+            <path d="M9 22v-4h6v4" />
+            <path d="M8 6h.01" />
+            <path d="M16 6h.01" />
+            <path d="M12 6h.01" />
+            <path d="M12 10h.01" />
+            <path d="M12 14h.01" />
+            <path d="M16 10h.01" />
+            <path d="M16 14h.01" />
+            <path d="M8 10h.01" />
+            <path d="M8 14h.01" />
         </symbol>
         <!-- Graduation/Education -->
         <symbol id="icon-graduation" viewBox="0 0 24 24">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
         </symbol>
         <!-- Wrench/Support -->
         <symbol id="icon-wrench" viewBox="0 0 24 24">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
         </symbol>
         <!-- Rocket -->
         <symbol id="icon-rocket" viewBox="0 0 24 24">
-            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
-            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
         </symbol>
         <!-- Check -->
         <symbol id="icon-check" viewBox="0 0 24 24">
-            <polyline points="20 6 9 17 4 12"/>
+            <polyline points="20 6 9 17 4 12" />
         </symbol>
         <!-- X -->
         <symbol id="icon-x" viewBox="0 0 24 24">
-            <path d="M18 6 6 18"/>
-            <path d="m6 6 12 12"/>
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
         </symbol>
         <!-- Warning -->
         <symbol id="icon-warning" viewBox="0 0 24 24">
-            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
-            <path d="M12 9v4"/>
-            <path d="M12 17h.01"/>
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+            <path d="M12 9v4" />
+            <path d="M12 17h.01" />
         </symbol>
         <!-- Zap/Lightning -->
         <symbol id="icon-zap" viewBox="0 0 24 24">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
         </symbol>
         <!-- Monitor/PC -->
         <symbol id="icon-monitor" viewBox="0 0 24 24">
-            <rect width="20" height="14" x="2" y="3" rx="2"/>
-            <line x1="8" x2="16" y1="21" y2="21"/>
-            <line x1="12" x2="12" y1="17" y2="21"/>
+            <rect width="20" height="14" x="2" y="3" rx="2" />
+            <line x1="8" x2="16" y1="21" y2="21" />
+            <line x1="12" x2="12" y1="17" y2="21" />
         </symbol>
     </svg>
 
     <!-- Pixel Particles Canvas -->
     <canvas id="pixel-canvas"></canvas>
-    
+
     <!-- Animated Stars Background -->
     <div class="stars-container">
         <div class="star"></div>
@@ -145,22 +152,22 @@
         <div class="star"></div>
         <div class="star"></div>
     </div>
-    
+
     <!-- HERO -->
     <section class="hero">
         <nav class="nav">
             <div class="nav-logo">
-                <img src="img/logo-small.png" alt="Weave" class="logo-icon">
-                <span class="logo-text">Weave</span>
+                <img src="img/logo-small.png" alt="Trovul" class="logo-icon">
+                <span class="logo-text">Trovul</span>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            
+
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#compare">Comparativo</a>
@@ -168,9 +175,11 @@
                 <a href="#waitlist" class="btn-nav">Early Access</a>
             </div>
         </nav>
-        
+
         <div class="hero-content">
-            <div class="hero-badge"><svg class="badge-icon"><use href="#icon-rocket"/></svg> Em desenvolvimento ativo</div>
+            <div class="hero-badge"><svg class="badge-icon">
+                    <use href="#icon-rocket" />
+                </svg> Em desenvolvimento ativo</div>
             <h1 class="hero-title">
                 O Software que<br>
                 <span class="gradient-text">Substitui Hardware</span><br>
@@ -202,7 +211,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="hero-visual">
             <div class="audio-wave">
                 <div class="wave-bar"></div>
@@ -230,13 +239,14 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="mockup-title"><img src="img/logo-small.png" alt="" class="mockup-logo-img"> Weave</span>
+                        <span class="mockup-title"><img src="img/logo-small.png" alt="" class="mockup-logo-img">
+                            Trovul</span>
                     </div>
                     <div class="mockup-content">
                         <div class="mockup-header">
                             <div class="mockup-logo">
                                 <img src="img/logo-small.png" alt="" class="mockup-logo-img">
-                                <span>Weave</span>
+                                <span>Trovul</span>
                             </div>
                             <div class="mockup-tabs">
                                 <button class="mock-tab active">Mixer</button>
@@ -254,7 +264,10 @@
                                 <div class="channel-strips">
                                     <div class="channel-strip-mock master">
                                         <div class="strip-header">
-                                            <span class="strip-icon"><svg style="width:16px;height:16px;stroke:currentColor;fill:none"><use href="#icon-sliders"/></svg></span>
+                                            <span class="strip-icon"><svg
+                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
+                                                    <use href="#icon-sliders" />
+                                                </svg></span>
                                             <span class="strip-name">Master</span>
                                         </div>
                                         <div class="strip-fader">
@@ -272,7 +285,10 @@
                                     </div>
                                     <div class="channel-strip-mock">
                                         <div class="strip-header">
-                                            <span class="strip-icon"><svg style="width:16px;height:16px;stroke:currentColor;fill:none"><use href="#icon-gamepad"/></svg></span>
+                                            <span class="strip-icon"><svg
+                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
+                                                    <use href="#icon-gamepad" />
+                                                </svg></span>
                                             <span class="strip-name">Game</span>
                                         </div>
                                         <div class="strip-fader">
@@ -290,7 +306,10 @@
                                     </div>
                                     <div class="channel-strip-mock">
                                         <div class="strip-header">
-                                            <span class="strip-icon"><svg style="width:16px;height:16px;stroke:currentColor;fill:none"><use href="#icon-headphones"/></svg></span>
+                                            <span class="strip-icon"><svg
+                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
+                                                    <use href="#icon-headphones" />
+                                                </svg></span>
                                             <span class="strip-name">Discord</span>
                                         </div>
                                         <div class="strip-fader">
@@ -308,7 +327,10 @@
                                     </div>
                                     <div class="channel-strip-mock">
                                         <div class="strip-header">
-                                            <span class="strip-icon"><svg style="width:16px;height:16px;stroke:currentColor;fill:none"><use href="#icon-audio"/></svg></span>
+                                            <span class="strip-icon"><svg
+                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
+                                                    <use href="#icon-audio" />
+                                                </svg></span>
                                             <span class="strip-name">Spotify</span>
                                         </div>
                                         <div class="strip-fader">
@@ -331,7 +353,10 @@
                                 <div class="channel-strips">
                                     <div class="channel-strip-mock">
                                         <div class="strip-header">
-                                            <span class="strip-icon"><svg style="width:16px;height:16px;stroke:currentColor;fill:none"><use href="#icon-monitor"/></svg></span>
+                                            <span class="strip-icon"><svg
+                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
+                                                    <use href="#icon-monitor" />
+                                                </svg></span>
                                             <span class="strip-name">OBS</span>
                                         </div>
                                         <div class="strip-fader">
@@ -361,31 +386,38 @@
         <div class="container">
             <h2 class="section-title">O Problema</h2>
             <p class="section-subtitle">Bilhões em hardware desperdiçado</p>
-            
+
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none"><use href="#icon-x"/></svg></div>
+                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
+                            <use href="#icon-x" />
+                        </svg></div>
                     <h3>Mixers USB</h3>
                     <p class="problem-price">~$500</p>
                     <p>Um único PC, configuração fixa, cabos físicos</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none"><use href="#icon-x"/></svg></div>
+                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
+                            <use href="#icon-x" />
+                        </svg></div>
                     <h3>Mixers Profissionais</h3>
                     <p class="problem-price">$200-$2000+</p>
                     <p>Complexidade técnica, manutenção, espaço físico</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none"><use href="#icon-x"/></svg></div>
+                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
+                            <use href="#icon-x" />
+                        </svg></div>
                     <h3>Cabos de Áudio</h3>
                     <p class="problem-price">$20-$100</p>
                     <p>Limitação física, qualidade de sinal, bagunça</p>
                 </div>
             </div>
-            
+
             <div class="problem-statement">
                 <p>Estamos em <strong>2026</strong>.</p>
-                <p>Temos internet de <strong>1Gbps</strong>, CPUs com <strong>16+ núcleos</strong>, redes locais de <strong>10Gbps</strong>.</p>
+                <p>Temos internet de <strong>1Gbps</strong>, CPUs com <strong>16+ núcleos</strong>, redes locais de
+                    <strong>10Gbps</strong>.</p>
                 <p class="highlight">Por que ainda usamos cabos físicos para rotear áudio?</p>
             </div>
         </div>
@@ -398,17 +430,25 @@
                 <h2 class="section-title">A Solução</h2>
                 <p class="tagline">"Software que faz o que hardware não consegue fazer."</p>
             </div>
-            
+
             <div class="solution-visual">
                 <div class="pc-card pc-sender">
-                    <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none"><use href="#icon-monitor"/></svg></div>
+                    <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none">
+                            <use href="#icon-monitor" />
+                        </svg></div>
                     <div class="pc-label">PC Gaming</div>
                     <div class="pc-apps">
-                        <span class="app-tag"><svg style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-gamepad"/></svg>Game</span>
-                        <span class="app-tag"><svg style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-audio"/></svg>Spotify</span>
+                        <span class="app-tag"><svg
+                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
+                                <use href="#icon-gamepad" />
+                            </svg>Game</span>
+                        <span class="app-tag"><svg
+                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
+                                <use href="#icon-audio" />
+                            </svg>Spotify</span>
                     </div>
                 </div>
-                
+
                 <div class="connection-line">
                     <div class="data-flow">
                         <span class="data-packet"></span>
@@ -417,28 +457,42 @@
                     </div>
                     <div class="connection-label">Rede Local • &lt;10ms</div>
                 </div>
-                
+
                 <div class="pc-card pc-receiver">
-                    <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none"><use href="#icon-monitor"/></svg></div>
+                    <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none">
+                            <use href="#icon-monitor" />
+                        </svg></div>
                     <div class="pc-label">PC Streaming</div>
                     <div class="pc-apps">
-                        <span class="app-tag"><svg style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-monitor"/></svg>OBS</span>
-                        <span class="app-tag"><svg style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-headphones"/></svg>Discord</span>
+                        <span class="app-tag"><svg
+                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
+                                <use href="#icon-monitor" />
+                            </svg>OBS</span>
+                        <span class="app-tag"><svg
+                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
+                                <use href="#icon-headphones" />
+                            </svg>Discord</span>
                     </div>
                 </div>
             </div>
-            
+
             <div class="solution-benefits">
                 <div class="benefit">
-                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#06b6d4;fill:none"><use href="#icon-zap"/></svg></span>
+                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#06b6d4;fill:none">
+                            <use href="#icon-zap" />
+                        </svg></span>
                     <span>Instalação em 2 minutos</span>
                 </div>
                 <div class="benefit">
-                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none"><use href="#icon-check"/></svg></span>
+                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none">
+                            <use href="#icon-check" />
+                        </svg></span>
                     <span>Zero cabos de áudio</span>
                 </div>
                 <div class="benefit">
-                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none"><use href="#icon-check"/></svg></span>
+                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none">
+                            <use href="#icon-check" />
+                        </svg></span>
                     <span>Zero hardware adicional</span>
                 </div>
             </div>
@@ -450,36 +504,48 @@
         <div class="container">
             <h2 class="section-title">Features</h2>
             <p class="section-subtitle">Tudo que você precisa, nada que não precisa</p>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon"><svg><use href="#icon-audio"/></svg></div>
+                    <div class="feature-icon"><svg>
+                            <use href="#icon-audio" />
+                        </svg></div>
                     <h3>Audio Streaming</h3>
                     <p>Transmita áudio entre PCs em tempo real via rede local com latência imperceptível.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg><use href="#icon-search"/></svg></div>
+                    <div class="feature-icon"><svg>
+                            <use href="#icon-search" />
+                        </svg></div>
                     <h3>Auto-Discovery</h3>
                     <p>PCs se encontram automaticamente. Zero configuração de rede, zero IPs manuais.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg><use href="#icon-audio"/></svg></div>
+                    <div class="feature-icon"><svg>
+                            <use href="#icon-audio" />
+                        </svg></div>
                     <h3>Universal Device Support</h3>
                     <p>Bluetooth, USB, analógico - qualquer dispositivo de áudio funciona.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg><use href="#icon-chart"/></svg></div>
+                    <div class="feature-icon"><svg>
+                            <use href="#icon-chart" />
+                        </svg></div>
                     <h3>Real-time Monitoring</h3>
                     <p>Painel de diagnóstico com métricas de latência, pacotes e qualidade.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg><use href="#icon-sliders"/></svg></div>
+                    <div class="feature-icon"><svg>
+                            <use href="#icon-sliders" />
+                        </svg></div>
                     <h3>Mixer Virtual</h3>
                     <p>Controle de volume por fonte, EQ, compressor - tudo em software.</p>
                     <span class="coming-soon">Em breve</span>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg><use href="#icon-target"/></svg></div>
+                    <div class="feature-icon"><svg>
+                            <use href="#icon-target" />
+                        </svg></div>
                     <h3>Per-App Routing</h3>
                     <p>Escolha quais aplicativos enviar para qual PC. Discord aqui, game ali.</p>
                     <span class="coming-soon">Em breve</span>
@@ -492,14 +558,14 @@
     <section class="comparison" id="compare">
         <div class="container">
             <h2 class="section-title">Comparativo</h2>
-            <p class="section-subtitle">Weave vs. A concorrência</p>
-            
+            <p class="section-subtitle">Trovul vs. A concorrência</p>
+
             <div class="compare-table">
                 <div class="compare-header">
                     <div class="compare-col">Aspecto</div>
                     <div class="compare-col competitor">Hardware Dedicado</div>
                     <div class="compare-col competitor">Software Atual</div>
-                    <div class="compare-col weave">Weave</div>
+                    <div class="compare-col weave">Trovul</div>
                 </div>
                 <div class="compare-row">
                     <div class="compare-col">Preço</div>
@@ -515,9 +581,18 @@
                 </div>
                 <div class="compare-row">
                     <div class="compare-col">Multi-PC</div>
-                    <div class="compare-col competitor"><svg class="icon-x" style="width:16px;height:16px;stroke:#ef4444;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-x"/></svg> Não</div>
-                    <div class="compare-col competitor"><svg class="icon-warning" style="width:16px;height:16px;stroke:#f59e0b;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-warning"/></svg> Limitado</div>
-                    <div class="compare-col weave highlight"><svg class="icon-check" style="width:16px;height:16px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-check"/></svg> Nativo</div>
+                    <div class="compare-col competitor"><svg class="icon-x"
+                            style="width:16px;height:16px;stroke:#ef4444;fill:none;vertical-align:middle;margin-right:4px">
+                            <use href="#icon-x" />
+                        </svg> Não</div>
+                    <div class="compare-col competitor"><svg class="icon-warning"
+                            style="width:16px;height:16px;stroke:#f59e0b;fill:none;vertical-align:middle;margin-right:4px">
+                            <use href="#icon-warning" />
+                        </svg> Limitado</div>
+                    <div class="compare-col weave highlight"><svg class="icon-check"
+                            style="width:16px;height:16px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:4px">
+                            <use href="#icon-check" />
+                        </svg> Nativo</div>
                 </div>
                 <div class="compare-row">
                     <div class="compare-col">Cabos</div>
@@ -545,36 +620,48 @@
     <section class="use-cases" id="usecases">
         <div class="container">
             <h2 class="section-title">Para Quem?</h2>
-            <p class="section-subtitle">Mercados que precisam de Weave</p>
-            
+            <p class="section-subtitle">Mercados que precisam de Trovul</p>
+
             <div class="usecases-grid">
                 <div class="usecase-card">
-                    <div class="use-icon"><svg><use href="#icon-gamepad"/></svg></div>
+                    <div class="use-icon"><svg>
+                            <use href="#icon-gamepad" />
+                        </svg></div>
                     <h3>Gaming & Esports</h3>
                     <p>Setup dual-PC sem cabos. Game no PC1, stream no PC2, áudio fluindo magicamente.</p>
                 </div>
                 <div class="usecase-card">
-                    <div class="use-icon"><svg><use href="#icon-mic"/></svg></div>
+                    <div class="use-icon"><svg>
+                            <use href="#icon-mic" />
+                        </svg></div>
                     <h3>Streamers & Criadores</h3>
                     <p>Qualidade de áudio profissional sem investir $500+ em hardware.</p>
                 </div>
                 <div class="usecase-card">
-                    <div class="use-icon"><svg><use href="#icon-mic"/></svg></div>
+                    <div class="use-icon"><svg>
+                            <use href="#icon-mic" />
+                        </svg></div>
                     <h3>Podcasters</h3>
                     <p>Múltiplos hosts, múltiplas máquinas, um único fluxo de áudio unificado.</p>
                 </div>
                 <div class="usecase-card">
-                    <div class="use-icon"><svg><use href="#icon-building"/></svg></div>
+                    <div class="use-icon"><svg>
+                            <use href="#icon-building" />
+                        </svg></div>
                     <h3>Corporativo</h3>
                     <p>Call centers, trading floors, estúdios - comunicação unificada.</p>
                 </div>
                 <div class="usecase-card">
-                    <div class="use-icon"><svg><use href="#icon-graduation"/></svg></div>
+                    <div class="use-icon"><svg>
+                            <use href="#icon-graduation" />
+                        </svg></div>
                     <h3>Educação</h3>
                     <p>Professor demonstra, alunos ouvem em tempo real. Aulas híbridas sem fricção.</p>
                 </div>
                 <div class="usecase-card">
-                    <div class="use-icon"><svg><use href="#icon-wrench"/></svg></div>
+                    <div class="use-icon"><svg>
+                            <use href="#icon-wrench" />
+                        </svg></div>
                     <h3>Suporte Técnico</h3>
                     <p>Ouça exatamente o que o cliente está ouvindo para diagnosticar problemas.</p>
                 </div>
@@ -587,7 +674,7 @@
         <div class="container">
             <h2 class="section-title">Preços</h2>
             <p class="section-subtitle">Simples e justo</p>
-            
+
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
@@ -597,16 +684,28 @@
                         </div>
                     </div>
                     <ul class="pricing-features">
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>2 dispositivos</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Streaming stereo</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Auto-discovery</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Updates automáticos</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>2 dispositivos</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Streaming stereo</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Auto-discovery</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Updates automáticos</li>
                         <li class="muted">✗ Mixer virtual</li>
                         <li class="muted">✗ Per-app routing</li>
                     </ul>
                     <a href="#waitlist" class="btn-pricing">Começar Grátis</a>
                 </div>
-                
+
                 <div class="pricing-card featured">
                     <div class="pricing-badge">Popular</div>
                     <div class="pricing-header">
@@ -617,16 +716,34 @@
                         </div>
                     </div>
                     <ul class="pricing-features">
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Dispositivos ilimitados</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Áudio 5.1/7.1</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Mixer virtual completo</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Per-app routing</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Hotkeys globais</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Suporte prioritário</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Dispositivos ilimitados</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Áudio 5.1/7.1</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Mixer virtual completo</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Per-app routing</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Hotkeys globais</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Suporte prioritário</li>
                     </ul>
                     <a href="#waitlist" class="btn-pricing primary">Entrar na Waitlist</a>
                 </div>
-                
+
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Team</h3>
@@ -636,12 +753,30 @@
                         </div>
                     </div>
                     <ul class="pricing-features">
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Tudo do Pro</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>10 usuários</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Gerenciamento central</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Profiles compartilhados</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Analytics de uso</li>
-                        <li><svg style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px"><use href="#icon-check"/></svg>Suporte dedicado</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Tudo do Pro</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>10 usuários</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Gerenciamento central</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Profiles compartilhados</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Analytics de uso</li>
+                        <li><svg
+                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
+                                <use href="#icon-check" />
+                            </svg>Suporte dedicado</li>
                     </ul>
                     <a href="#waitlist" class="btn-pricing">Contato</a>
                 </div>
@@ -654,7 +789,7 @@
         <div class="container">
             <h2 class="section-title">Especificações Técnicas</h2>
             <p class="section-subtitle">Para os nerds (como nós)</p>
-            
+
             <div class="specs-grid">
                 <div class="spec-card">
                     <div class="spec-label">Latência</div>
@@ -677,7 +812,7 @@
                     <div class="spec-note">UDP optimizado</div>
                 </div>
             </div>
-            
+
             <div class="tech-stack">
                 <h4>Stack</h4>
                 <div class="stack-tags">
@@ -697,8 +832,8 @@
         <div class="container">
             <div class="waitlist-content">
                 <h2>Seja o Primeiro a Testar</h2>
-                <p>Weave está em desenvolvimento ativo. Entre na waitlist para acesso antecipado.</p>
-                
+                <p>Trovul está em desenvolvimento ativo. Entre na waitlist para acesso antecipado.</p>
+
                 <form class="waitlist-form" id="waitlist-form">
                     <input type="email" placeholder="seu@email.com" required>
                     <button type="submit" class="btn-primary">
@@ -706,9 +841,12 @@
                         <span class="btn-arrow">→</span>
                     </button>
                 </form>
-                
-                <p class="waitlist-note"><svg style="width:14px;height:14px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px"><use href="#icon-check"/></svg>Sem spam. Só atualizações importantes.</p>
-                
+
+                <p class="waitlist-note"><svg
+                        style="width:14px;height:14px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
+                        <use href="#icon-check" />
+                    </svg>Sem spam. Só atualizações importantes.</p>
+
                 <div class="social-proof">
                     <div class="proof-item">
                         <span class="proof-number">500+</span>
@@ -734,8 +872,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="img/logo-small.png" alt="Weave" class="logo-icon">
-                    <span class="logo-text">Weave</span>
+                    <img src="img/logo-small.png" alt="Trovul" class="logo-icon">
+                    <span class="logo-text">Trovul</span>
                     <p class="footer-tagline">"Porque áudio não deveria ter cabos."</p>
                 </div>
                 <div class="footer-links">
@@ -746,13 +884,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Weave. Todos os direitos reservados.</p>
+                <p>© 2026 Trovul. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/app.js"></script>
-    
+
     <!-- Firebase -->
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -775,4 +913,5 @@
         const analytics = getAnalytics(app);
     </script>
 </body>
+
 </html>

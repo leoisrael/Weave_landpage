@@ -1,5 +1,5 @@
 /**
- * Weave Landing Page - JavaScript AAA
+ * Trovul Landing Page - JavaScript AAA
  * With pixel particles and mouse interactions
  */
 
