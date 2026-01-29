@@ -1,0 +1,112 @@
+/* Professional SVG Icons */
+
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.icon-lg {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-xl {
+    width: 48px;
+    height: 48px;
+}
+
+/* Feature Icons - Gradient colored */
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: #8b5cf6;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.feature-card:nth-child(2) .feature-icon svg {
+    stroke: #06b6d4;
+}
+
+.feature-card:nth-child(3) .feature-icon svg {
+    stroke: #10b981;
+}
+
+.feature-card:nth-child(4) .feature-icon svg {
+    stroke: #f59e0b;
+}
+
+.feature-card:nth-child(5) .feature-icon svg {
+    stroke: #ec4899;
+}
+
+.feature-card:nth-child(6) .feature-icon svg {
+    stroke: #6366f1;
+}
+
+/* Use Case Icons */
+.use-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.use-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #8b5cf6;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+/* Badge icon */
+.badge-icon {
+    width: 16px;
+    height: 16px;
+    stroke: #06b6d4;
+    stroke-width: 2;
+    fill: none;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Problem icons */
+.problem-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+/* Table icons */
+.icon-check {
+    color: #10b981;
+}
+
+.icon-x {
+    color: #ef4444;
+}
+
+.icon-warning {
+    color: #f59e0b;
+}
+
