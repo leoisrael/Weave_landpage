@@ -219,17 +219,65 @@ function initSmoothScroll() {
     });
 }
 
-// Waitlist form handling - now using Formsubmit.co
-// Just add visual feedback, don't prevent the actual submit
+// Waitlist form handling - using Formsubmit.co via AJAX
+// Keeps the user on the page with confetti animation
 function initWaitlistForm() {
     const form = document.getElementById('waitlist-form');
     if (form) {
-        form.addEventListener('submit', (e) => {
-            // DON'T prevent default - let the form submit to Formsubmit.co
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = form.querySelector('input[type="email"]').value;
             const button = form.querySelector('button');
+            const originalText = button.innerHTML;
+
             button.innerHTML = '<span>Enviando...</span>';
             button.disabled = true;
             button.style.opacity = '0.7';
+
+            try {
+                // Send to Formsubmit via AJAX
+                const response = await fetch('https://formsubmit.co/ajax/trovul.waitlist@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        _subject: '🎉 Nova pessoa na Waitlist do Trovul!'
+                    })
+                });
+
+                if (response.ok) {
+                    button.innerHTML = '<span>✓ Você está na lista!</span>';
+                    button.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
+                    button.style.opacity = '1';
+
+                    // Confetti effect
+                    createConfetti();
+
+                    // Reset após 4 segundos
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.style.background = '';
+                        button.disabled = false;
+                        form.querySelector('input').value = '';
+                    }, 4000);
+                } else {
+                    throw new Error('Erro no envio');
+                }
+            } catch (error) {
+                button.innerHTML = '<span>Erro. Tente novamente.</span>';
+                button.style.background = 'linear-gradient(135deg, #ef4444 0%, #f87171 100%)';
+                button.style.opacity = '1';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                    button.disabled = false;
+                }, 3000);
+            }
         });
     }
 }
