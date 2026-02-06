@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trovul - O Software que Substitui Hardware de Áudio</title>
+    <title>Trovul - The Software that Replaces Audio Hardware</title>
     <meta name="description"
-        content="Streaming de áudio entre PCs via rede local. Zero cabos, zero hardware adicional. Substitui mixers físicos por uma fração do preço.">
+        content="Stream audio between PCs over local network. Zero cables, zero extra hardware. Replace physical mixers for a fraction of the price.">
     <link rel="icon" type="image/png" href="img/logo-small.png">
     <link rel="apple-touch-icon" href="img/logo-small.png">
     <link rel="stylesheet" href="css/style.css">
@@ -171,45 +171,49 @@
             </button>
 
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#compare">Comparativo</a>
-                <a href="#pricing">Preços</a>
-                <a href="#waitlist" class="btn-nav">Early Access</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#compare" data-i18n="nav.compare">Compare</a>
+                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                <a href="#waitlist" class="btn-nav" data-i18n="nav.earlyAccess">Early Access</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="en"><span class="flag">🇺🇸</span> EN</button>
+                    <button class="lang-btn" data-lang="pt"><span class="flag">🇧🇷</span> PT</button>
+                </div>
             </div>
         </nav>
 
         <div class="hero-content">
             <div class="hero-badge"><svg class="badge-icon">
                     <use href="#icon-rocket" />
-                </svg> Em desenvolvimento ativo</div>
+                </svg> <span data-i18n="hero.badge">In active development</span></div>
             <h1 class="hero-title">
-                O Software que<br>
-                <span class="gradient-text">Substitui Hardware</span><br>
-                de Áudio
+                <span data-i18n="hero.title1">The Software that</span><br>
+                <span class="gradient-text" data-i18n="hero.title2">Replaces Hardware</span><br>
+                <span data-i18n="hero.title3">for Audio</span>
             </h1>
-            <p class="hero-subtitle">
-                Streaming de áudio entre PCs em tempo real. Zero cabos, zero hardware adicional.<br>
-                Substitua seu mixer de $500 por software.
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
+                Real-time audio streaming between PCs. Zero cables, zero extra hardware.<br>
+                Replace your $500 mixer with software.
             </p>
             <div class="hero-cta">
                 <a href="#waitlist" class="btn-primary">
-                    <span>Entrar na Waitlist</span>
+                    <span data-i18n="hero.cta">Join Waitlist</span>
                     <span class="btn-arrow">→</span>
                 </a>
-                <a href="#demo" class="btn-secondary">Ver Demo</a>
+                <a href="#demo" class="btn-secondary" data-i18n="hero.demo">View Demo</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-value">&lt;10ms</span>
-                    <span class="stat-label">Latência</span>
+                    <span class="stat-label" data-i18n="hero.stat.latency">Latency</span>
                 </div>
                 <div class="stat">
                     <span class="stat-value">2 min</span>
-                    <span class="stat-label">Setup</span>
+                    <span class="stat-label" data-i18n="hero.stat.setup">Setup</span>
                 </div>
                 <div class="stat">
                     <span class="stat-value">$0</span>
-                    <span class="stat-label">HW Extra</span>
+                    <span class="stat-label" data-i18n="hero.stat.hw">Extra HW</span>
                 </div>
             </div>
         </div>
@@ -386,42 +390,42 @@
     <!-- PROBLEM -->
     <section class="problem" id="problem">
         <div class="container">
-            <h2 class="section-title">O Problema</h2>
-            <p class="section-subtitle">Bilhões em hardware desperdiçado</p>
+            <h2 class="section-title" data-i18n="problem.title">The Problem</h2>
+            <p class="section-subtitle" data-i18n="problem.subtitle">Billions in wasted hardware</p>
 
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
                             <use href="#icon-x" />
                         </svg></div>
-                    <h3>Mixers USB</h3>
+                    <h3 data-i18n="problem.mixer.title">USB Mixers</h3>
                     <p class="problem-price">~$500</p>
-                    <p>Um único PC, configuração fixa, cabos físicos</p>
+                    <p data-i18n="problem.mixer.desc">Single PC, fixed configuration, physical cables</p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
                             <use href="#icon-x" />
                         </svg></div>
-                    <h3>Mixers Profissionais</h3>
+                    <h3 data-i18n="problem.pro.title">Professional Mixers</h3>
                     <p class="problem-price">$200-$2000+</p>
-                    <p>Complexidade técnica, manutenção, espaço físico</p>
+                    <p data-i18n="problem.pro.desc">Technical complexity, maintenance, physical space</p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
                             <use href="#icon-x" />
                         </svg></div>
-                    <h3>Cabos de Áudio</h3>
+                    <h3 data-i18n="problem.cables.title">Audio Cables</h3>
                     <p class="problem-price">$20-$100</p>
-                    <p>Limitação física, qualidade de sinal, bagunça</p>
+                    <p data-i18n="problem.cables.desc">Physical limitation, signal quality, mess</p>
                 </div>
             </div>
 
             <div class="problem-statement">
-                <p>Estamos em <strong>2026</strong>.</p>
-                <p>Temos internet de <strong>1Gbps</strong>, CPUs com <strong>16+ núcleos</strong>, redes locais de
-                    <strong>10Gbps</strong>.
+                <p data-i18n="problem.statement1">We're in <strong>2026</strong>.</p>
+                <p data-i18n="problem.statement2">We have <strong>1Gbps</strong> internet, CPUs with <strong>16+
+                        cores</strong>, <strong>10Gbps</strong> local networks.</p>
+                <p class="highlight" data-i18n="problem.statement3">Why do we still use physical cables to route audio?
                 </p>
-                <p class="highlight">Por que ainda usamos cabos físicos para rotear áudio?</p>
             </div>
         </div>
     </section>
@@ -430,8 +434,8 @@
     <section class="solution" id="solution">
         <div class="container">
             <div class="solution-header">
-                <h2 class="section-title">A Solução</h2>
-                <p class="tagline">"Software que faz o que hardware não consegue fazer."</p>
+                <h2 class="section-title" data-i18n="solution.title">The Solution</h2>
+                <p class="tagline" data-i18n="solution.tagline">"Software that does what hardware can't."</p>
             </div>
 
             <div class="solution-visual">
@@ -439,7 +443,7 @@
                     <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none">
                             <use href="#icon-monitor" />
                         </svg></div>
-                    <div class="pc-label">PC Gaming</div>
+                    <div class="pc-label" data-i18n="solution.pc1">Gaming PC</div>
                     <div class="pc-apps">
                         <span class="app-tag"><svg
                                 style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
@@ -458,14 +462,14 @@
                         <span class="data-packet"></span>
                         <span class="data-packet"></span>
                     </div>
-                    <div class="connection-label">Rede Local • &lt;10ms</div>
+                    <div class="connection-label" data-i18n="solution.connection">Local Network • &lt;10ms</div>
                 </div>
 
                 <div class="pc-card pc-receiver">
                     <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none">
                             <use href="#icon-monitor" />
                         </svg></div>
-                    <div class="pc-label">PC Streaming</div>
+                    <div class="pc-label" data-i18n="solution.pc2">Streaming PC</div>
                     <div class="pc-apps">
                         <span class="app-tag"><svg
                                 style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
@@ -484,19 +488,19 @@
                     <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#06b6d4;fill:none">
                             <use href="#icon-zap" />
                         </svg></span>
-                    <span>Instalação em 2 minutos</span>
+                    <span data-i18n="solution.benefit1">2-minute installation</span>
                 </div>
                 <div class="benefit">
                     <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none">
                             <use href="#icon-check" />
                         </svg></span>
-                    <span>Zero cabos de áudio</span>
+                    <span data-i18n="solution.benefit2">Zero audio cables</span>
                 </div>
                 <div class="benefit">
                     <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none">
                             <use href="#icon-check" />
                         </svg></span>
-                    <span>Zero hardware adicional</span>
+                    <span data-i18n="solution.benefit3">Zero extra hardware</span>
                 </div>
             </div>
         </div>
@@ -505,53 +509,57 @@
     <!-- FEATURES -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Features</h2>
-            <p class="section-subtitle">Tudo que você precisa, nada que não precisa</p>
+            <h2 class="section-title" data-i18n="features.title">Features</h2>
+            <p class="section-subtitle" data-i18n="features.subtitle">Everything you need, nothing you don't</p>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><svg>
                             <use href="#icon-audio" />
                         </svg></div>
-                    <h3>Audio Streaming</h3>
-                    <p>Transmita áudio entre PCs em tempo real via rede local com latência imperceptível.</p>
+                    <h3 data-i18n="features.streaming.title">Audio Streaming</h3>
+                    <p data-i18n="features.streaming.desc">Stream audio between PCs in real-time over local network with
+                        imperceptible latency.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg>
                             <use href="#icon-search" />
                         </svg></div>
-                    <h3>Auto-Discovery</h3>
-                    <p>PCs se encontram automaticamente. Zero configuração de rede, zero IPs manuais.</p>
+                    <h3 data-i18n="features.discovery.title">Auto-Discovery</h3>
+                    <p data-i18n="features.discovery.desc">PCs find each other automatically. Zero network config, zero
+                        manual IPs.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg>
                             <use href="#icon-audio" />
                         </svg></div>
-                    <h3>Universal Device Support</h3>
-                    <p>Bluetooth, USB, analógico - qualquer dispositivo de áudio funciona.</p>
+                    <h3 data-i18n="features.universal.title">Universal Device Support</h3>
+                    <p data-i18n="features.universal.desc">Bluetooth, USB, analog - any audio device works.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg>
                             <use href="#icon-chart" />
                         </svg></div>
-                    <h3>Real-time Monitoring</h3>
-                    <p>Painel de diagnóstico com métricas de latência, pacotes e qualidade.</p>
+                    <h3 data-i18n="features.monitoring.title">Real-time Monitoring</h3>
+                    <p data-i18n="features.monitoring.desc">Diagnostic panel with latency, packets, and quality metrics.
+                    </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg>
                             <use href="#icon-sliders" />
                         </svg></div>
-                    <h3>Mixer Virtual</h3>
-                    <p>Controle de volume por fonte, EQ, compressor - tudo em software.</p>
-                    <span class="coming-soon">Em breve</span>
+                    <h3 data-i18n="features.mixer.title">Virtual Mixer</h3>
+                    <p data-i18n="features.mixer.desc">Per-source volume control, EQ, compressor - all in software.</p>
+                    <span class="coming-soon" data-i18n="features.comingSoon">Coming soon</span>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg>
                             <use href="#icon-target" />
                         </svg></div>
-                    <h3>Per-App Routing</h3>
-                    <p>Escolha quais aplicativos enviar para qual PC. Discord aqui, game ali.</p>
-                    <span class="coming-soon">Em breve</span>
+                    <h3 data-i18n="features.routing.title">Per-App Routing</h3>
+                    <p data-i18n="features.routing.desc">Choose which apps to send to which PC. Discord here, game
+                        there.</p>
+                    <span class="coming-soon" data-i18n="features.comingSoon">Coming soon</span>
                 </div>
             </div>
         </div>
@@ -560,60 +568,60 @@
     <!-- COMPARISON -->
     <section class="comparison" id="compare">
         <div class="container">
-            <h2 class="section-title">Comparativo</h2>
-            <p class="section-subtitle">Trovul vs. A concorrência</p>
+            <h2 class="section-title" data-i18n="compare.title">Comparison</h2>
+            <p class="section-subtitle" data-i18n="compare.subtitle">Trovul vs. The competition</p>
 
             <div class="compare-table">
                 <div class="compare-header">
-                    <div class="compare-col">Aspecto</div>
-                    <div class="compare-col competitor">Hardware Dedicado</div>
-                    <div class="compare-col competitor">Software Atual</div>
+                    <div class="compare-col" data-i18n="compare.aspect">Aspect</div>
+                    <div class="compare-col competitor" data-i18n="compare.hardware">Dedicated Hardware</div>
+                    <div class="compare-col competitor" data-i18n="compare.software">Current Software</div>
                     <div class="compare-col weave">Trovul</div>
                 </div>
                 <div class="compare-row">
-                    <div class="compare-col">Preço</div>
+                    <div class="compare-col" data-i18n="compare.price">Price</div>
                     <div class="compare-col competitor">$500+</div>
                     <div class="compare-col competitor">$50-100</div>
-                    <div class="compare-col weave highlight">Grátis - $30</div>
+                    <div class="compare-col weave highlight">Free - $30</div>
                 </div>
                 <div class="compare-row">
-                    <div class="compare-col">Setup</div>
+                    <div class="compare-col" data-i18n="compare.setup">Setup</div>
                     <div class="compare-col competitor">30+ min</div>
                     <div class="compare-col competitor">10+ min</div>
-                    <div class="compare-col weave highlight">2 minutos</div>
+                    <div class="compare-col weave highlight">2 minutes</div>
                 </div>
                 <div class="compare-row">
-                    <div class="compare-col">Multi-PC</div>
+                    <div class="compare-col" data-i18n="compare.multipc">Multi-PC</div>
                     <div class="compare-col competitor"><svg class="icon-x"
                             style="width:16px;height:16px;stroke:#ef4444;fill:none;vertical-align:middle;margin-right:4px">
                             <use href="#icon-x" />
-                        </svg> Não</div>
+                        </svg> <span data-i18n="compare.no">No</span></div>
                     <div class="compare-col competitor"><svg class="icon-warning"
                             style="width:16px;height:16px;stroke:#f59e0b;fill:none;vertical-align:middle;margin-right:4px">
                             <use href="#icon-warning" />
-                        </svg> Limitado</div>
+                        </svg> <span data-i18n="compare.limited">Limited</span></div>
                     <div class="compare-col weave highlight"><svg class="icon-check"
                             style="width:16px;height:16px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:4px">
                             <use href="#icon-check" />
-                        </svg> Nativo</div>
+                        </svg> <span data-i18n="compare.native">Native</span></div>
                 </div>
                 <div class="compare-row">
-                    <div class="compare-col">Cabos</div>
-                    <div class="compare-col competitor">Vários</div>
-                    <div class="compare-col competitor">Alguns</div>
-                    <div class="compare-col weave highlight">Zero</div>
+                    <div class="compare-col" data-i18n="compare.cables">Cables</div>
+                    <div class="compare-col competitor" data-i18n="compare.several">Several</div>
+                    <div class="compare-col competitor" data-i18n="compare.some">Some</div>
+                    <div class="compare-col weave highlight" data-i18n="compare.zero">Zero</div>
                 </div>
                 <div class="compare-row">
-                    <div class="compare-col">Updates</div>
-                    <div class="compare-col competitor">Firmware manual</div>
-                    <div class="compare-col competitor">Irregular</div>
-                    <div class="compare-col weave highlight">Automático</div>
+                    <div class="compare-col" data-i18n="compare.updates">Updates</div>
+                    <div class="compare-col competitor" data-i18n="compare.firmware">Manual firmware</div>
+                    <div class="compare-col competitor" data-i18n="compare.irregular">Irregular</div>
+                    <div class="compare-col weave highlight" data-i18n="compare.automatic">Automatic</div>
                 </div>
                 <div class="compare-row">
-                    <div class="compare-col">Flexibilidade</div>
-                    <div class="compare-col competitor">Fixa</div>
-                    <div class="compare-col competitor">Limitada</div>
-                    <div class="compare-col weave highlight">Ilimitada</div>
+                    <div class="compare-col" data-i18n="compare.flexibility">Flexibility</div>
+                    <div class="compare-col competitor" data-i18n="compare.fixed">Fixed</div>
+                    <div class="compare-col competitor" data-i18n="compare.limited">Limited</div>
+                    <div class="compare-col weave highlight" data-i18n="compare.unlimited">Unlimited</div>
                 </div>
             </div>
         </div>
@@ -622,51 +630,57 @@
     <!-- USE CASES -->
     <section class="use-cases" id="usecases">
         <div class="container">
-            <h2 class="section-title">Para Quem?</h2>
-            <p class="section-subtitle">Mercados que precisam de Trovul</p>
+            <h2 class="section-title" data-i18n="usecases.title">For Whom?</h2>
+            <p class="section-subtitle" data-i18n="usecases.subtitle">Markets that need Trovul</p>
 
             <div class="usecases-grid">
                 <div class="usecase-card">
                     <div class="use-icon"><svg>
                             <use href="#icon-gamepad" />
                         </svg></div>
-                    <h3>Gaming & Esports</h3>
-                    <p>Setup dual-PC sem cabos. Game no PC1, stream no PC2, áudio fluindo magicamente.</p>
+                    <h3 data-i18n="usecases.gaming.title">Gaming & Esports</h3>
+                    <p data-i18n="usecases.gaming.desc">Dual-PC setup without cables. Game on PC1, stream on PC2, audio
+                        flowing magically.</p>
                 </div>
                 <div class="usecase-card">
                     <div class="use-icon"><svg>
                             <use href="#icon-mic" />
                         </svg></div>
-                    <h3>Streamers & Criadores</h3>
-                    <p>Qualidade de áudio profissional sem investir $500+ em hardware.</p>
+                    <h3 data-i18n="usecases.streamers.title">Streamers & Creators</h3>
+                    <p data-i18n="usecases.streamers.desc">Professional audio quality without investing $500+ in
+                        hardware.</p>
                 </div>
                 <div class="usecase-card">
                     <div class="use-icon"><svg>
                             <use href="#icon-mic" />
                         </svg></div>
-                    <h3>Podcasters</h3>
-                    <p>Múltiplos hosts, múltiplas máquinas, um único fluxo de áudio unificado.</p>
+                    <h3 data-i18n="usecases.podcasters.title">Podcasters</h3>
+                    <p data-i18n="usecases.podcasters.desc">Multiple hosts, multiple machines, one unified audio stream.
+                    </p>
                 </div>
                 <div class="usecase-card">
                     <div class="use-icon"><svg>
                             <use href="#icon-building" />
                         </svg></div>
-                    <h3>Corporativo</h3>
-                    <p>Call centers, trading floors, estúdios - comunicação unificada.</p>
+                    <h3 data-i18n="usecases.corporate.title">Corporate</h3>
+                    <p data-i18n="usecases.corporate.desc">Call centers, trading floors, studios - unified
+                        communication.</p>
                 </div>
                 <div class="usecase-card">
                     <div class="use-icon"><svg>
                             <use href="#icon-graduation" />
                         </svg></div>
-                    <h3>Educação</h3>
-                    <p>Professor demonstra, alunos ouvem em tempo real. Aulas híbridas sem fricção.</p>
+                    <h3 data-i18n="usecases.education.title">Education</h3>
+                    <p data-i18n="usecases.education.desc">Teacher demonstrates, students listen in real-time.
+                        Frictionless hybrid classes.</p>
                 </div>
                 <div class="usecase-card">
                     <div class="use-icon"><svg>
                             <use href="#icon-wrench" />
                         </svg></div>
-                    <h3>Suporte Técnico</h3>
-                    <p>Ouça exatamente o que o cliente está ouvindo para diagnosticar problemas.</p>
+                    <h3 data-i18n="usecases.support.title">Tech Support</h3>
+                    <p data-i18n="usecases.support.desc">Hear exactly what the client is hearing to diagnose problems.
+                    </p>
                 </div>
             </div>
         </div>
@@ -675,113 +689,113 @@
     <!-- PRICING -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2 class="section-title">Preços</h2>
-            <p class="section-subtitle">Simples e justo</p>
+            <h2 class="section-title" data-i18n="pricing.title">Pricing</h2>
+            <p class="section-subtitle" data-i18n="pricing.subtitle">Simple and fair</p>
 
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Personal</h3>
+                        <h3 data-i18n="pricing.personal">Personal</h3>
                         <div class="price">
-                            <span class="price-value">Grátis</span>
+                            <span class="price-value" data-i18n="pricing.free">Free</span>
                         </div>
                     </div>
                     <ul class="pricing-features">
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>2 dispositivos</li>
+                            </svg><span data-i18n="pricing.personal.devices">2 devices</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Streaming stereo</li>
+                            </svg><span data-i18n="pricing.personal.stereo">Stereo streaming</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Auto-discovery</li>
+                            </svg><span data-i18n="pricing.personal.discovery">Auto-discovery</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Updates automáticos</li>
-                        <li class="muted">✗ Mixer virtual</li>
-                        <li class="muted">✗ Per-app routing</li>
+                            </svg><span data-i18n="pricing.personal.updates">Automatic updates</span></li>
+                        <li class="muted">✗ <span data-i18n="pricing.personal.noMixer">Virtual mixer</span></li>
+                        <li class="muted">✗ <span data-i18n="pricing.personal.noRouting">Per-app routing</span></li>
                     </ul>
-                    <a href="#waitlist" class="btn-pricing">Começar Grátis</a>
+                    <a href="#waitlist" class="btn-pricing" data-i18n="pricing.btn.free">Start Free</a>
                 </div>
 
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Popular</div>
+                    <div class="pricing-badge" data-i18n="pricing.popular">Popular</div>
                     <div class="pricing-header">
-                        <h3>Pro</h3>
+                        <h3 data-i18n="pricing.pro">Pro</h3>
                         <div class="price">
                             <span class="price-value">$9.99</span>
-                            <span class="price-period">/mês</span>
+                            <span class="price-period" data-i18n="pricing.month">/month</span>
                         </div>
                     </div>
                     <ul class="pricing-features">
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Dispositivos ilimitados</li>
+                            </svg><span data-i18n="pricing.pro.devices">Unlimited devices</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Áudio 5.1/7.1</li>
+                            </svg><span data-i18n="pricing.pro.surround">5.1/7.1 audio</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Mixer virtual completo</li>
+                            </svg><span data-i18n="pricing.pro.mixer">Full virtual mixer</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Per-app routing</li>
+                            </svg><span data-i18n="pricing.pro.routing">Per-app routing</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Hotkeys globais</li>
+                            </svg><span data-i18n="pricing.pro.hotkeys">Global hotkeys</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Suporte prioritário</li>
+                            </svg><span data-i18n="pricing.pro.support">Priority support</span></li>
                     </ul>
-                    <a href="#waitlist" class="btn-pricing primary">Entrar na Waitlist</a>
+                    <a href="#waitlist" class="btn-pricing primary" data-i18n="pricing.btn.waitlist">Join Waitlist</a>
                 </div>
 
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Team</h3>
+                        <h3 data-i18n="pricing.team">Team</h3>
                         <div class="price">
                             <span class="price-value">$29.99</span>
-                            <span class="price-period">/mês</span>
+                            <span class="price-period" data-i18n="pricing.month">/month</span>
                         </div>
                     </div>
                     <ul class="pricing-features">
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Tudo do Pro</li>
+                            </svg><span data-i18n="pricing.team.all">Everything in Pro</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>10 usuários</li>
+                            </svg><span data-i18n="pricing.team.users">10 users</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Gerenciamento central</li>
+                            </svg><span data-i18n="pricing.team.central">Central management</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Profiles compartilhados</li>
+                            </svg><span data-i18n="pricing.team.profiles">Shared profiles</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Analytics de uso</li>
+                            </svg><span data-i18n="pricing.team.analytics">Usage analytics</span></li>
                         <li><svg
                                 style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
                                 <use href="#icon-check" />
-                            </svg>Suporte dedicado</li>
+                            </svg><span data-i18n="pricing.team.support">Dedicated support</span></li>
                     </ul>
-                    <a href="#waitlist" class="btn-pricing">Contato</a>
+                    <a href="#waitlist" class="btn-pricing" data-i18n="pricing.btn.contact">Contact</a>
                 </div>
             </div>
         </div>
@@ -790,34 +804,34 @@
     <!-- TECH SPECS -->
     <section class="tech-specs" id="specs">
         <div class="container">
-            <h2 class="section-title">Especificações Técnicas</h2>
-            <p class="section-subtitle">Para os nerds (como nós)</p>
+            <h2 class="section-title" data-i18n="specs.title">Technical Specifications</h2>
+            <p class="section-subtitle" data-i18n="specs.subtitle">For the nerds (like us)</p>
 
             <div class="specs-grid">
                 <div class="spec-card">
-                    <div class="spec-label">Latência</div>
+                    <div class="spec-label" data-i18n="specs.latency">Latency</div>
                     <div class="spec-value">&lt;10ms</div>
-                    <div class="spec-note">Em rede local</div>
+                    <div class="spec-note" data-i18n="specs.latency.note">On local network</div>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-label">Bandwidth</div>
+                    <div class="spec-label" data-i18n="specs.bandwidth">Bandwidth</div>
                     <div class="spec-value">~75 KB/s</div>
-                    <div class="spec-note">Por stream</div>
+                    <div class="spec-note" data-i18n="specs.bandwidth.note">Per stream</div>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-label">CPU Usage</div>
+                    <div class="spec-label" data-i18n="specs.cpu">CPU Usage</div>
                     <div class="spec-value">&lt;3%</div>
-                    <div class="spec-note">Receiver</div>
+                    <div class="spec-note" data-i18n="specs.cpu.note">Receiver</div>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-label">Packet Rate</div>
+                    <div class="spec-label" data-i18n="specs.packets">Packet Rate</div>
                     <div class="spec-value">~50/s</div>
-                    <div class="spec-note">UDP optimizado</div>
+                    <div class="spec-note" data-i18n="specs.packets.note">Optimized UDP</div>
                 </div>
             </div>
 
             <div class="tech-stack">
-                <h4>Stack</h4>
+                <h4 data-i18n="specs.stack">Stack</h4>
                 <div class="stack-tags">
                     <span class="stack-tag">Rust</span>
                     <span class="stack-tag">Tauri v2</span>
@@ -834,20 +848,22 @@
     <section class="waitlist" id="waitlist">
         <div class="container">
             <div class="waitlist-content">
-                <h2>Seja o Primeiro a Testar</h2>
-                <p>Trovul está em desenvolvimento ativo. Entre na waitlist para acesso antecipado.</p>
+                <h2 data-i18n="waitlist.title">Be the First to Test</h2>
+                <p data-i18n="waitlist.subtitle">Trovul is in active development. Join the waitlist for early access.
+                </p>
 
                 <form class="waitlist-form" id="waitlist-form" action="https://formsubmit.co/trovul.waitlist@gmail.com"
                     method="POST">
                     <!-- Formsubmit config -->
-                    <input type="hidden" name="_subject" value="🎉 Nova pessoa na Waitlist do Trovul!">
+                    <input type="hidden" name="_subject" value="🎉 New person on Trovul Waitlist!">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://trovul.web.app/thanks.html">
+                    <input type="hidden" name="_next" value="https://trovul.com/thanks.html">
 
-                    <input type="email" name="email" placeholder="seu@email.com" required>
+                    <input type="email" name="email" placeholder="your@email.com"
+                        data-i18n-placeholder="waitlist.placeholder" required>
                     <button type="submit" class="btn-primary">
-                        <span>Entrar na Waitlist</span>
+                        <span data-i18n="waitlist.btn">Join Waitlist</span>
                         <span class="btn-arrow">→</span>
                     </button>
                 </form>
@@ -855,22 +871,22 @@
                 <p class="waitlist-note"><svg
                         style="width:14px;height:14px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
                         <use href="#icon-check" />
-                    </svg>Sem spam. Só atualizações importantes.</p>
+                    </svg><span data-i18n="waitlist.note">No spam. Only important updates.</span></p>
 
                 <div class="social-proof">
                     <div class="proof-item">
                         <span class="proof-number">500+</span>
-                        <span class="proof-label">na waitlist</span>
+                        <span class="proof-label" data-i18n="waitlist.proof.waitlist">on waitlist</span>
                     </div>
                     <div class="proof-divider"></div>
                     <div class="proof-item">
                         <span class="proof-number">50+</span>
-                        <span class="proof-label">beta testers</span>
+                        <span class="proof-label" data-i18n="waitlist.proof.testers">beta testers</span>
                     </div>
                     <div class="proof-divider"></div>
                     <div class="proof-item">
                         <span class="proof-number">25K+</span>
-                        <span class="proof-label">pacotes/dia</span>
+                        <span class="proof-label" data-i18n="waitlist.proof.packets">packets/day</span>
                     </div>
                 </div>
             </div>
@@ -884,21 +900,22 @@
                 <div class="footer-brand">
                     <img src="img/logo-small.png" alt="Trovul" class="logo-icon">
                     <span class="logo-text">Trovul</span>
-                    <p class="footer-tagline">"Porque áudio não deveria ter cabos."</p>
+                    <p class="footer-tagline" data-i18n="footer.tagline">"Because audio shouldn't need cables."</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#features">Features</a>
-                    <a href="#pricing">Preços</a>
-                    <a href="#specs">Specs</a>
-                    <a href="#waitlist">Waitlist</a>
+                    <a href="#features" data-i18n="footer.features">Features</a>
+                    <a href="#pricing" data-i18n="footer.pricing">Pricing</a>
+                    <a href="#specs" data-i18n="footer.specs">Specs</a>
+                    <a href="#waitlist" data-i18n="footer.waitlist">Waitlist</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Trovul. Todos os direitos reservados.</p>
+                <p data-i18n="footer.copyright">© 2026 Trovul. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/app.js"></script>
 
     <!-- Firebase -->

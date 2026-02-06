@@ -1725,3 +1725,64 @@ section {
 .mobile-menu-btn.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
+/* ========================================
+   LANGUAGE SWITCHER
+   ======================================== */
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 4px;
+    margin-left: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-btn.active {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.lang-btn .flag {
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Mobile adjustments for language switcher */
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 16px;
+        justify-content: center;
+    }
+    
+    .lang-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
