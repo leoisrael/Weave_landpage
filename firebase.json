@@ -5,7 +5,8 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "*.tmp"
+      "*.tmp",
+      "README.md"
     ],
     "headers": [
       {
@@ -25,7 +26,17 @@
             "value": "max-age=604800"
           }
         ]
+      },
+      {
+        "source": "**/*.@(mp4|webm)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=604800"
+          }
+        ]
       }
-    ]
+    ],
+    "cleanUrls": true
   }
 }
