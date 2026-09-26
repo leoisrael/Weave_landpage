@@ -376,6 +376,7 @@ summary:focus-visible,
 
 .hero {
   padding: calc(var(--nav-h) + 72px) 0 40px;
+  overflow-x: clip;
 }
 
 .hero-grid {
@@ -1271,7 +1272,7 @@ summary:focus-visible,
     radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0) 0 0 / 18px 18px,
     rgba(0, 0, 0, 0.3);
   cursor: none;
-  touch-action: none;
+  touch-action: pan-y;
   user-select: none;
 }
 
@@ -2119,6 +2120,14 @@ select option {
     margin: 0 auto;
   }
 
+  .float-toast {
+    right: -1%;
+  }
+
+  .float-flyout {
+    left: -1%;
+  }
+
   .bento {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2140,6 +2149,21 @@ select option {
 
   .card-xl {
     grid-template-columns: 1fr;
+  }
+
+  /* Two columns: pair the small cards, let Stream Deck take a full row. */
+  .card-audio { order: 1; }
+  .card-follow { order: 2; }
+  .card-input { order: 3; }
+  .card-apps { order: 4; }
+  .card-clip { order: 5; }
+  .card-tray { order: 6; }
+  .card-deck { order: 7; grid-column: span 2; }
+  .mini-grid { order: 8; }
+
+  .card-deck .deck {
+    width: 100%;
+    max-width: 380px;
   }
 
   .mini-grid {
