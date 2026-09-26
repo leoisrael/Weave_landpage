@@ -429,6 +429,15 @@ summary:focus-visible,
   display: block;
 }
 
+/* "Uma mesa só." is longer than "One desk.": keep each line whole. */
+html[lang="pt-BR"] .hero-title {
+  font-size: clamp(44px, 5.1vw, 78px);
+}
+
+html[lang="pt-BR"] .hero-title span {
+  white-space: nowrap;
+}
+
 .hero-lead {
   max-width: 560px;
   color: var(--text-2);
