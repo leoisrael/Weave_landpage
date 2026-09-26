@@ -3,929 +3,703 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>document.documentElement.classList.add("js")</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trovul - The Software that Replaces Audio Hardware</title>
+    <title>Trovul — Two PCs. One desk.</title>
     <meta name="description"
-        content="Stream audio between PCs over local network. Zero cables, zero extra hardware. Replace physical mixers for a fraction of the price.">
+        content="Trovul links two Windows PCs over your home network: hear both in one headset, mix every app on both PCs, and use one keyboard and mouse across all your screens. No cables, no extra hardware.">
+    <meta name="theme-color" content="#07070b">
+    <link rel="canonical" href="https://trovul.com/">
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
     <link rel="icon" type="image/png" href="img/logo-small.png">
-    <link rel="apple-touch-icon" href="img/logo-small.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="apple-touch-icon" href="img/logo.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Trovul">
+    <meta property="og:url" content="https://trovul.com/">
+    <meta property="og:title" content="Trovul — Two PCs. One desk.">
+    <meta property="og:description"
+        content="Hear both PCs in one headset, mix every app on both, and use one keyboard and mouse across all your screens. No cables, no extra hardware.">
+    <meta property="og:image" content="https://trovul.com/media/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trovul — Two PCs. One desk.">
+    <meta name="twitter:description"
+        content="Hear both PCs in one headset, mix every app on both, and use one keyboard and mouse across all your screens.">
+    <meta name="twitter:image" content="https://trovul.com/media/og.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css?v=1">
+    <link rel="preload" as="image" href="media/mixer.webp" type="image/webp">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Trovul",
+        "operatingSystem": "Windows 10, Windows 11",
+        "applicationCategory": "MultimediaApplication",
+        "description": "Links two Windows PCs over the local network: audio between the PCs, a mixer for every app on both, one keyboard and mouse across all screens, shared clipboard and files.",
+        "url": "https://trovul.com/",
+        "image": "https://trovul.com/media/og.png"
+    }
+    </script>
 </head>
 
 <body>
-    <!-- SVG Icon Definitions -->
-    <svg style="display: none;">
+    <!-- Icons (Lucide shapes) -->
+    <svg class="sprite" aria-hidden="true">
         <defs>
-            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#8b5cf6" />
-                <stop offset="100%" style="stop-color:#06b6d4" />
+            <linearGradient id="brand-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a78bfa" />
+                <stop offset="55%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#34d399" />
             </linearGradient>
         </defs>
-        <!-- Audio/Speaker -->
-        <symbol id="icon-audio" viewBox="0 0 24 24">
-            <path d="M11 5L6 9H2v6h4l5 4V5z" />
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        <symbol id="logo" viewBox="0 0 100 100">
+            <path d="M75 20 A35 35 0 0 1 75 80" fill="none" stroke="url(#brand-g)" stroke-width="10" stroke-linecap="round" />
+            <path d="M25 80 A35 35 0 0 1 25 20" fill="none" stroke="url(#brand-g)" stroke-width="10" stroke-linecap="round" opacity="0.55" />
+            <circle cx="40" cy="36" r="8" fill="#a78bfa" opacity="0.75" />
+            <circle cx="60" cy="64" r="8" fill="#22d3ee" />
         </symbol>
-        <!-- Search/Discovery -->
-        <symbol id="icon-search" viewBox="0 0 24 24">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.3-4.3" />
-        </symbol>
-        <!-- Headphones -->
-        <symbol id="icon-headphones" viewBox="0 0 24 24">
-            <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-            <path
-                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
-        </symbol>
-        <!-- Chart/Monitor -->
-        <symbol id="icon-chart" viewBox="0 0 24 24">
-            <path d="M3 3v18h18" />
-            <path d="m19 9-5 5-4-4-3 3" />
-        </symbol>
-        <!-- Sliders/Mixer -->
-        <symbol id="icon-sliders" viewBox="0 0 24 24">
-            <line x1="4" x2="4" y1="21" y2="14" />
-            <line x1="4" x2="4" y1="10" y2="3" />
-            <line x1="12" x2="12" y1="21" y2="12" />
-            <line x1="12" x2="12" y1="8" y2="3" />
-            <line x1="20" x2="20" y1="21" y2="16" />
-            <line x1="20" x2="20" y1="12" y2="3" />
-            <line x1="2" x2="6" y1="14" y2="14" />
-            <line x1="10" x2="14" y1="8" y2="8" />
-            <line x1="18" x2="22" y1="16" y2="16" />
-        </symbol>
-        <!-- Target/Routing -->
-        <symbol id="icon-target" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <circle cx="12" cy="12" r="6" />
-            <circle cx="12" cy="12" r="2" />
-        </symbol>
-        <!-- Gamepad -->
-        <symbol id="icon-gamepad" viewBox="0 0 24 24">
-            <line x1="6" x2="10" y1="12" y2="12" />
-            <line x1="8" x2="8" y1="10" y2="14" />
-            <circle cx="17" cy="10" r="1" />
-            <circle cx="15" cy="14" r="1" />
-            <path d="M6 6h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-        </symbol>
-        <!-- Mic/Podcast -->
-        <symbol id="icon-mic" viewBox="0 0 24 24">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-            <line x1="12" x2="12" y1="19" y2="22" />
-        </symbol>
-        <!-- Building/Corporate -->
-        <symbol id="icon-building" viewBox="0 0 24 24">
-            <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
-            <path d="M9 22v-4h6v4" />
-            <path d="M8 6h.01" />
-            <path d="M16 6h.01" />
-            <path d="M12 6h.01" />
-            <path d="M12 10h.01" />
-            <path d="M12 14h.01" />
-            <path d="M16 10h.01" />
-            <path d="M16 14h.01" />
-            <path d="M8 10h.01" />
-            <path d="M8 14h.01" />
-        </symbol>
-        <!-- Graduation/Education -->
-        <symbol id="icon-graduation" viewBox="0 0 24 24">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-            <path d="M6 12v5c3 3 9 3 12 0v-5" />
-        </symbol>
-        <!-- Wrench/Support -->
-        <symbol id="icon-wrench" viewBox="0 0 24 24">
-            <path
-                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-        </symbol>
-        <!-- Rocket -->
-        <symbol id="icon-rocket" viewBox="0 0 24 24">
-            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-        </symbol>
-        <!-- Check -->
-        <symbol id="icon-check" viewBox="0 0 24 24">
-            <polyline points="20 6 9 17 4 12" />
-        </symbol>
-        <!-- X -->
-        <symbol id="icon-x" viewBox="0 0 24 24">
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-        </symbol>
-        <!-- Warning -->
-        <symbol id="icon-warning" viewBox="0 0 24 24">
-            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-            <path d="M12 9v4" />
-            <path d="M12 17h.01" />
-        </symbol>
-        <!-- Zap/Lightning -->
-        <symbol id="icon-zap" viewBox="0 0 24 24">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-        </symbol>
-        <!-- Monitor/PC -->
-        <symbol id="icon-monitor" viewBox="0 0 24 24">
-            <rect width="20" height="14" x="2" y="3" rx="2" />
-            <line x1="8" x2="16" y1="21" y2="21" />
-            <line x1="12" x2="12" y1="17" y2="21" />
-        </symbol>
+        <symbol id="i-headphones" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" /></symbol>
+        <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14" /><line x1="4" x2="4" y1="10" y2="3" /><line x1="12" x2="12" y1="21" y2="12" /><line x1="12" x2="12" y1="8" y2="3" /><line x1="20" x2="20" y1="21" y2="16" /><line x1="20" x2="20" y1="12" y2="3" /><line x1="2" x2="6" y1="14" y2="14" /><line x1="10" x2="14" y1="8" y2="8" /><line x1="18" x2="22" y1="16" y2="16" /></symbol>
+        <symbol id="i-pointer" viewBox="0 0 24 24"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z" /></symbol>
+        <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" /><path d="M16 4h2a2 2 0 0 1 2 2v4" /><path d="M21 14H11" /><path d="m15 10-4 4 4 4" /></symbol>
+        <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><line x1="22" x2="18" y1="12" y2="12" /><line x1="6" x2="2" y1="12" y2="12" /><line x1="12" x2="12" y1="6" y2="2" /><line x1="12" x2="12" y1="22" y2="18" /></symbol>
+        <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" x2="16" y1="12" y2="12" /></symbol>
+        <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /><path d="M16 9a5 5 0 0 1 0 6" /><path d="M19.364 18.364a9 9 0 0 0 0-12.728" /></symbol>
+        <symbol id="i-gamepad" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11" /><line x1="8" x2="8" y1="9" y2="13" /><line x1="15" x2="15.01" y1="12" y2="12" /><line x1="18" x2="18.01" y1="10" y2="10" /><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" /></symbol>
+        <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></symbol>
+        <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></symbol>
+        <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+        <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M10 8h.01" /><path d="M12 12h.01" /><path d="M14 8h.01" /><path d="M16 12h.01" /><path d="M18 8h.01" /><path d="M6 8h.01" /><path d="M7 16h10" /><path d="M8 12h.01" /><rect width="20" height="16" x="2" y="4" rx="2" /></symbol>
+        <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol>
+        <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></symbol>
+        <symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2" /><rect width="6" height="6" x="9" y="9" rx="1" /><path d="M15 2v2" /><path d="M15 20v2" /><path d="M2 15h2" /><path d="M2 9h2" /><path d="M20 15h2" /><path d="M20 9h2" /><path d="M9 2v2" /><path d="M9 20v2" /></symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+        <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20h.01" /><path d="M2 8.82a15 15 0 0 1 20 0" /><path d="M5 12.859a10 10 0 0 1 14 0" /><path d="M8.5 16.429a5 5 0 0 1 7 0" /></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></symbol>
+        <symbol id="i-window" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M10 4v4" /><path d="M2 8h20" /><path d="M6 4v4" /></symbol>
+        <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol>
+        <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5" /><path d="M9 8V2" /><path d="M15 8V2" /><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></symbol>
+        <symbol id="i-lines" viewBox="0 0 24 24"><path d="M2 10v3" /><path d="M6 6v11" /><path d="M10 3v18" /><path d="M14 8v7" /><path d="M18 5v13" /><path d="M22 10v3" /></symbol>
+        <symbol id="i-files" viewBox="0 0 24 24"><path d="M20 7h-3a2 2 0 0 1-2-2V2" /><path d="M9 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l4 4v10a2 2 0 0 1-2 2Z" /><path d="M3 7.6v12.8A1.6 1.6 0 0 0 4.6 22h9.8" /></symbol>
+        <symbol id="i-cable" viewBox="0 0 24 24"><path d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1" /><path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" /><path d="M21 21v-2h-4" /><path d="M3 5h4V3" /><path d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3" /></symbol>
     </svg>
 
-    <!-- Pixel Particles Canvas -->
-    <canvas id="pixel-canvas"></canvas>
-
-    <!-- Animated Stars Background -->
-    <div class="stars-container">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+    <div class="backdrop" aria-hidden="true">
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+        <div class="grid-lines"></div>
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <nav class="nav">
-            <div class="nav-logo">
-                <img src="img/logo-small.png" alt="Trovul" class="logo-icon">
-                <span class="logo-text">Trovul</span>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <div class="nav-links">
+    <!-- NAV -->
+    <header class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#top" class="brand" aria-label="Trovul">
+                <svg class="brand-mark"><use href="#logo" /></svg>
+                <span>Trovul</span>
+            </a>
+            <nav class="nav-links" id="nav-links" aria-label="Main">
                 <a href="#features" data-i18n="nav.features">Features</a>
-                <a href="#compare" data-i18n="nav.compare">Compare</a>
-                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
-                <a href="#waitlist" class="btn-nav" data-i18n="nav.earlyAccess">Early Access</a>
-                <div class="lang-switcher">
-                    <button class="lang-btn" data-lang="en"><span class="flag-code">US</span> EN</button>
-                    <button class="lang-btn" data-lang="pt"><span class="flag-code">BR</span> PT</button>
+                <a href="#try" data-i18n="nav.try">Try it</a>
+                <a href="#film" data-i18n="nav.film">Film</a>
+                <a href="#tech" data-i18n="nav.tech">Technology</a>
+                <a href="#companies" data-i18n="nav.companies">For companies</a>
+                <a href="#faq" data-i18n="nav.faq">FAQ</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang" role="group" aria-label="Language">
+                    <button type="button" data-lang="en">EN</button>
+                    <button type="button" data-lang="pt">PT</button>
                 </div>
-            </div>
-        </nav>
-
-        <div class="hero-content">
-            <div class="hero-badge"><svg class="badge-icon">
-                    <use href="#icon-rocket" />
-                </svg> <span data-i18n="hero.badge">In active development</span></div>
-            <h1 class="hero-title">
-                <span data-i18n="hero.title1">The Software that</span><br>
-                <span class="gradient-text" data-i18n="hero.title2">Replaces Hardware</span><br>
-                <span data-i18n="hero.title3">for Audio</span>
-            </h1>
-            <p class="hero-subtitle" data-i18n="hero.subtitle">
-                Real-time audio streaming between PCs. Zero cables, zero extra hardware.<br>
-                Replace your $500 mixer with software.
-            </p>
-            <div class="hero-cta">
-                <a href="#waitlist" class="btn-primary">
-                    <span data-i18n="hero.cta">Join Waitlist</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-                <a href="#demo" class="btn-secondary" data-i18n="hero.demo">View Demo</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-value">&lt;10ms</span>
-                    <span class="stat-label" data-i18n="hero.stat.latency">Latency</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">2 min</span>
-                    <span class="stat-label" data-i18n="hero.stat.setup">Setup</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">$0</span>
-                    <span class="stat-label" data-i18n="hero.stat.hw">Extra HW</span>
-                </div>
+                <a href="#waitlist" class="btn btn-primary btn-sm" data-i18n="nav.cta">Join the waitlist</a>
+                <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+                    <svg class="icon"><use href="#i-menu" /></svg>
+                </button>
             </div>
         </div>
+    </header>
 
-        <div class="hero-visual">
-            <div class="audio-wave">
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- APP MOCKUP -->
-    <section class="mockup-section">
-        <div class="container">
-            <div class="mockup-wrapper">
-                <div class="mockup-window">
-                    <div class="mockup-titlebar">
-                        <div class="mockup-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="mockup-title"><img src="img/logo-small.png" alt="" class="mockup-logo-img">
-                            Trovul</span>
-                    </div>
-                    <div class="mockup-content">
-                        <div class="mockup-header">
-                            <div class="mockup-logo">
-                                <img src="img/logo-small.png" alt="" class="mockup-logo-img">
-                                <span>Trovul</span>
-                            </div>
-                            <div class="mockup-tabs">
-                                <button class="mock-tab active">Mixer</button>
-                                <button class="mock-tab">Devices</button>
-                                <button class="mock-tab">Routing</button>
-                            </div>
-                            <div class="mockup-connection">
-                                <span class="connection-dot-mock"></span>
-                                <span>Connected to <strong>PC-Stream</strong></span>
-                            </div>
-                        </div>
-                        <div class="mockup-mixer">
-                            <div class="mixer-section">
-                                <div class="section-label">Local</div>
-                                <div class="channel-strips">
-                                    <div class="channel-strip-mock master">
-                                        <div class="strip-header">
-                                            <span class="strip-icon"><svg
-                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
-                                                    <use href="#icon-sliders" />
-                                                </svg></span>
-                                            <span class="strip-name">Master</span>
-                                        </div>
-                                        <div class="strip-fader">
-                                            <div class="fader-track">
-                                                <div class="fader-fill" style="height: 75%"></div>
-                                            </div>
-                                            <div class="peak-meter-mock">
-                                                <div class="peak-fill" style="height: 65%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="strip-footer">
-                                            <span class="volume-pct">75%</span>
-                                            <button class="mute-btn-mock">M</button>
-                                        </div>
-                                    </div>
-                                    <div class="channel-strip-mock">
-                                        <div class="strip-header">
-                                            <span class="strip-icon"><svg
-                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
-                                                    <use href="#icon-gamepad" />
-                                                </svg></span>
-                                            <span class="strip-name">Game</span>
-                                        </div>
-                                        <div class="strip-fader">
-                                            <div class="fader-track">
-                                                <div class="fader-fill" style="height: 60%"></div>
-                                            </div>
-                                            <div class="peak-meter-mock">
-                                                <div class="peak-fill animated" style="height: 45%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="strip-footer">
-                                            <span class="volume-pct">60%</span>
-                                            <button class="mute-btn-mock">M</button>
-                                        </div>
-                                    </div>
-                                    <div class="channel-strip-mock">
-                                        <div class="strip-header">
-                                            <span class="strip-icon"><svg
-                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
-                                                    <use href="#icon-headphones" />
-                                                </svg></span>
-                                            <span class="strip-name">Discord</span>
-                                        </div>
-                                        <div class="strip-fader">
-                                            <div class="fader-track">
-                                                <div class="fader-fill" style="height: 80%"></div>
-                                            </div>
-                                            <div class="peak-meter-mock">
-                                                <div class="peak-fill animated" style="height: 30%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="strip-footer">
-                                            <span class="volume-pct">80%</span>
-                                            <button class="mute-btn-mock">M</button>
-                                        </div>
-                                    </div>
-                                    <div class="channel-strip-mock">
-                                        <div class="strip-header">
-                                            <span class="strip-icon"><svg
-                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
-                                                    <use href="#icon-audio" />
-                                                </svg></span>
-                                            <span class="strip-name">Spotify</span>
-                                        </div>
-                                        <div class="strip-fader">
-                                            <div class="fader-track">
-                                                <div class="fader-fill" style="height: 40%"></div>
-                                            </div>
-                                            <div class="peak-meter-mock">
-                                                <div class="peak-fill animated" style="height: 55%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="strip-footer">
-                                            <span class="volume-pct">40%</span>
-                                            <button class="mute-btn-mock active">M</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mixer-section remote">
-                                <div class="section-label">Remote (PC-Stream)</div>
-                                <div class="channel-strips">
-                                    <div class="channel-strip-mock">
-                                        <div class="strip-header">
-                                            <span class="strip-icon"><svg
-                                                    style="width:16px;height:16px;stroke:currentColor;fill:none">
-                                                    <use href="#icon-monitor" />
-                                                </svg></span>
-                                            <span class="strip-name">OBS</span>
-                                        </div>
-                                        <div class="strip-fader">
-                                            <div class="fader-track">
-                                                <div class="fader-fill remote" style="height: 70%"></div>
-                                            </div>
-                                            <div class="peak-meter-mock">
-                                                <div class="peak-fill" style="height: 50%"></div>
-                                            </div>
-                                        </div>
-                                        <div class="strip-footer">
-                                            <span class="volume-pct">70%</span>
-                                            <button class="mute-btn-mock">M</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROBLEM -->
-    <section class="problem" id="problem">
-        <div class="container">
-            <h2 class="section-title" data-i18n="problem.title">The Problem</h2>
-            <p class="section-subtitle" data-i18n="problem.subtitle">Billions in wasted hardware</p>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
-                            <use href="#icon-x" />
-                        </svg></div>
-                    <h3 data-i18n="problem.mixer.title">USB Mixers</h3>
-                    <p class="problem-price">~$500</p>
-                    <p data-i18n="problem.mixer.desc">Single PC, fixed configuration, physical cables</p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
-                            <use href="#icon-x" />
-                        </svg></div>
-                    <h3 data-i18n="problem.pro.title">Professional Mixers</h3>
-                    <p class="problem-price">$200-$2000+</p>
-                    <p data-i18n="problem.pro.desc">Technical complexity, maintenance, physical space</p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon"><svg style="width:32px;height:32px;stroke:#ef4444;fill:none">
-                            <use href="#icon-x" />
-                        </svg></div>
-                    <h3 data-i18n="problem.cables.title">Audio Cables</h3>
-                    <p class="problem-price">$20-$100</p>
-                    <p data-i18n="problem.cables.desc">Physical limitation, signal quality, mess</p>
-                </div>
-            </div>
-
-            <div class="problem-statement">
-                <p data-i18n="problem.statement1">We're in <strong>2026</strong>.</p>
-                <p data-i18n="problem.statement2">We have <strong>1Gbps</strong> internet, CPUs with <strong>16+
-                        cores</strong>, <strong>10Gbps</strong> local networks.</p>
-                <p class="highlight" data-i18n="problem.statement3">Why do we still use physical cables to route audio?
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUTION -->
-    <section class="solution" id="solution">
-        <div class="container">
-            <div class="solution-header">
-                <h2 class="section-title" data-i18n="solution.title">The Solution</h2>
-                <p class="tagline" data-i18n="solution.tagline">"Software that does what hardware can't."</p>
-            </div>
-
-            <div class="solution-visual">
-                <div class="pc-card pc-sender">
-                    <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none">
-                            <use href="#icon-monitor" />
-                        </svg></div>
-                    <div class="pc-label" data-i18n="solution.pc1">Gaming PC</div>
-                    <div class="pc-apps">
-                        <span class="app-tag"><svg
-                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
-                                <use href="#icon-gamepad" />
-                            </svg>Game</span>
-                        <span class="app-tag"><svg
-                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
-                                <use href="#icon-audio" />
-                            </svg>Spotify</span>
-                    </div>
-                </div>
-
-                <div class="connection-line">
-                    <div class="data-flow">
-                        <span class="data-packet"></span>
-                        <span class="data-packet"></span>
-                        <span class="data-packet"></span>
-                    </div>
-                    <div class="connection-label" data-i18n="solution.connection">Local Network • &lt;10ms</div>
-                </div>
-
-                <div class="pc-card pc-receiver">
-                    <div class="pc-icon"><svg style="width:32px;height:32px;stroke:currentColor;fill:none">
-                            <use href="#icon-monitor" />
-                        </svg></div>
-                    <div class="pc-label" data-i18n="solution.pc2">Streaming PC</div>
-                    <div class="pc-apps">
-                        <span class="app-tag"><svg
-                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
-                                <use href="#icon-monitor" />
-                            </svg>OBS</span>
-                        <span class="app-tag"><svg
-                                style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
-                                <use href="#icon-headphones" />
-                            </svg>Discord</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="solution-benefits">
-                <div class="benefit">
-                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#06b6d4;fill:none">
-                            <use href="#icon-zap" />
-                        </svg></span>
-                    <span data-i18n="solution.benefit1">2-minute installation</span>
-                </div>
-                <div class="benefit">
-                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none">
-                            <use href="#icon-check" />
-                        </svg></span>
-                    <span data-i18n="solution.benefit2">Zero audio cables</span>
-                </div>
-                <div class="benefit">
-                    <span class="benefit-icon"><svg style="width:20px;height:20px;stroke:#10b981;fill:none">
-                            <use href="#icon-check" />
-                        </svg></span>
-                    <span data-i18n="solution.benefit3">Zero extra hardware</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title" data-i18n="features.title">Features</h2>
-            <p class="section-subtitle" data-i18n="features.subtitle">Everything you need, nothing you don't</p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><svg>
-                            <use href="#icon-audio" />
-                        </svg></div>
-                    <h3 data-i18n="features.streaming.title">Audio Streaming</h3>
-                    <p data-i18n="features.streaming.desc">Stream audio between PCs in real-time over local network with
-                        imperceptible latency.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><svg>
-                            <use href="#icon-search" />
-                        </svg></div>
-                    <h3 data-i18n="features.discovery.title">Auto-Discovery</h3>
-                    <p data-i18n="features.discovery.desc">PCs find each other automatically. Zero network config, zero
-                        manual IPs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><svg>
-                            <use href="#icon-audio" />
-                        </svg></div>
-                    <h3 data-i18n="features.universal.title">Universal Device Support</h3>
-                    <p data-i18n="features.universal.desc">Bluetooth, USB, analog - any audio device works.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><svg>
-                            <use href="#icon-chart" />
-                        </svg></div>
-                    <h3 data-i18n="features.monitoring.title">Real-time Monitoring</h3>
-                    <p data-i18n="features.monitoring.desc">Diagnostic panel with latency, packets, and quality metrics.
+    <main id="top">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow" data-reveal>
+                        <span class="pulse-dot"></span>
+                        <span data-i18n="hero.badge">In private testing · Windows 10 &amp; 11</span>
                     </p>
+                    <h1 class="hero-title" data-reveal>
+                        <span data-i18n="hero.t1">Two PCs.</span>
+                        <span class="grad" data-i18n="hero.t2">One desk.</span>
+                    </h1>
+                    <p class="hero-lead" data-reveal data-i18n="hero.lead">Hear both PCs in one headset, mix every app like on a
+                        hardware mixer, and move one keyboard and mouse across all your screens. Trovul links your PCs
+                        over your home network — no cables, no extra hardware.</p>
+                    <div class="hero-cta" data-reveal>
+                        <a href="#waitlist" class="btn btn-primary btn-lg">
+                            <span data-i18n="hero.cta">Join the waitlist</span>
+                            <svg class="icon"><use href="#i-arrow" /></svg>
+                        </a>
+                        <a href="#film" class="btn btn-ghost btn-lg">
+                            <svg class="icon icon-fill"><use href="#i-play" /></svg>
+                            <span data-i18n="hero.film">Watch the film</span>
+                        </a>
+                    </div>
+                    <ul class="hero-points" data-reveal>
+                        <li><svg class="icon"><use href="#i-headphones" /></svg><span data-i18n="hero.p1">Sound from both PCs</span></li>
+                        <li><svg class="icon"><use href="#i-sliders" /></svg><span data-i18n="hero.p2">Mixer for every app</span></li>
+                        <li><svg class="icon"><use href="#i-pointer" /></svg><span data-i18n="hero.p3">One keyboard &amp; mouse</span></li>
+                        <li><svg class="icon"><use href="#i-clipboard" /></svg><span data-i18n="hero.p4">Clipboard &amp; files</span></li>
+                    </ul>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><svg>
-                            <use href="#icon-sliders" />
-                        </svg></div>
-                    <h3 data-i18n="features.mixer.title">Virtual Mixer</h3>
-                    <p data-i18n="features.mixer.desc">Per-source volume control, EQ, compressor - all in software.</p>
-                    <span class="coming-soon" data-i18n="features.comingSoon">Coming soon</span>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><svg>
-                            <use href="#icon-target" />
-                        </svg></div>
-                    <h3 data-i18n="features.routing.title">Per-App Routing</h3>
-                    <p data-i18n="features.routing.desc">Choose which apps to send to which PC. Discord here, game
-                        there.</p>
-                    <span class="coming-soon" data-i18n="features.comingSoon">Coming soon</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- COMPARISON -->
-    <section class="comparison" id="compare">
-        <div class="container">
-            <h2 class="section-title" data-i18n="compare.title">Comparison</h2>
-            <p class="section-subtitle" data-i18n="compare.subtitle">Trovul vs. The competition</p>
-
-            <div class="compare-table">
-                <div class="compare-header">
-                    <div class="compare-col" data-i18n="compare.aspect">Aspect</div>
-                    <div class="compare-col competitor" data-i18n="compare.hardware">Dedicated Hardware</div>
-                    <div class="compare-col competitor" data-i18n="compare.software">Current Software</div>
-                    <div class="compare-col weave">Trovul</div>
-                </div>
-                <div class="compare-row">
-                    <div class="compare-col" data-i18n="compare.price">Price</div>
-                    <div class="compare-col competitor">$500+</div>
-                    <div class="compare-col competitor">$50-100</div>
-                    <div class="compare-col weave highlight">Free - $30</div>
-                </div>
-                <div class="compare-row">
-                    <div class="compare-col" data-i18n="compare.setup">Setup</div>
-                    <div class="compare-col competitor">30+ min</div>
-                    <div class="compare-col competitor">10+ min</div>
-                    <div class="compare-col weave highlight">2 minutes</div>
-                </div>
-                <div class="compare-row">
-                    <div class="compare-col" data-i18n="compare.multipc">Multi-PC</div>
-                    <div class="compare-col competitor"><svg class="icon-x"
-                            style="width:16px;height:16px;stroke:#ef4444;fill:none;vertical-align:middle;margin-right:4px">
-                            <use href="#icon-x" />
-                        </svg> <span data-i18n="compare.no">No</span></div>
-                    <div class="compare-col competitor"><svg class="icon-warning"
-                            style="width:16px;height:16px;stroke:#f59e0b;fill:none;vertical-align:middle;margin-right:4px">
-                            <use href="#icon-warning" />
-                        </svg> <span data-i18n="compare.limited">Limited</span></div>
-                    <div class="compare-col weave highlight"><svg class="icon-check"
-                            style="width:16px;height:16px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:4px">
-                            <use href="#icon-check" />
-                        </svg> <span data-i18n="compare.native">Native</span></div>
-                </div>
-                <div class="compare-row">
-                    <div class="compare-col" data-i18n="compare.cables">Cables</div>
-                    <div class="compare-col competitor" data-i18n="compare.several">Several</div>
-                    <div class="compare-col competitor" data-i18n="compare.some">Some</div>
-                    <div class="compare-col weave highlight" data-i18n="compare.zero">Zero</div>
-                </div>
-                <div class="compare-row">
-                    <div class="compare-col" data-i18n="compare.updates">Updates</div>
-                    <div class="compare-col competitor" data-i18n="compare.firmware">Manual firmware</div>
-                    <div class="compare-col competitor" data-i18n="compare.irregular">Irregular</div>
-                    <div class="compare-col weave highlight" data-i18n="compare.automatic">Automatic</div>
-                </div>
-                <div class="compare-row">
-                    <div class="compare-col" data-i18n="compare.flexibility">Flexibility</div>
-                    <div class="compare-col competitor" data-i18n="compare.fixed">Fixed</div>
-                    <div class="compare-col competitor" data-i18n="compare.limited">Limited</div>
-                    <div class="compare-col weave highlight" data-i18n="compare.unlimited">Unlimited</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- USE CASES -->
-    <section class="use-cases" id="usecases">
-        <div class="container">
-            <h2 class="section-title" data-i18n="usecases.title">For Whom?</h2>
-            <p class="section-subtitle" data-i18n="usecases.subtitle">Markets that need Trovul</p>
-
-            <div class="usecases-grid">
-                <div class="usecase-card">
-                    <div class="use-icon"><svg>
-                            <use href="#icon-gamepad" />
-                        </svg></div>
-                    <h3 data-i18n="usecases.gaming.title">Gaming & Esports</h3>
-                    <p data-i18n="usecases.gaming.desc">Dual-PC setup without cables. Game on PC1, stream on PC2, audio
-                        flowing magically.</p>
-                </div>
-                <div class="usecase-card">
-                    <div class="use-icon"><svg>
-                            <use href="#icon-mic" />
-                        </svg></div>
-                    <h3 data-i18n="usecases.streamers.title">Streamers & Creators</h3>
-                    <p data-i18n="usecases.streamers.desc">Professional audio quality without investing $500+ in
-                        hardware.</p>
-                </div>
-                <div class="usecase-card">
-                    <div class="use-icon"><svg>
-                            <use href="#icon-mic" />
-                        </svg></div>
-                    <h3 data-i18n="usecases.podcasters.title">Podcasters</h3>
-                    <p data-i18n="usecases.podcasters.desc">Multiple hosts, multiple machines, one unified audio stream.
-                    </p>
-                </div>
-                <div class="usecase-card">
-                    <div class="use-icon"><svg>
-                            <use href="#icon-building" />
-                        </svg></div>
-                    <h3 data-i18n="usecases.corporate.title">Corporate</h3>
-                    <p data-i18n="usecases.corporate.desc">Call centers, trading floors, studios - unified
-                        communication.</p>
-                </div>
-                <div class="usecase-card">
-                    <div class="use-icon"><svg>
-                            <use href="#icon-graduation" />
-                        </svg></div>
-                    <h3 data-i18n="usecases.education.title">Education</h3>
-                    <p data-i18n="usecases.education.desc">Teacher demonstrates, students listen in real-time.
-                        Frictionless hybrid classes.</p>
-                </div>
-                <div class="usecase-card">
-                    <div class="use-icon"><svg>
-                            <use href="#icon-wrench" />
-                        </svg></div>
-                    <h3 data-i18n="usecases.support.title">Tech Support</h3>
-                    <p data-i18n="usecases.support.desc">Hear exactly what the client is hearing to diagnose problems.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title" data-i18n="pricing.title">Pricing</h2>
-            <p class="section-subtitle" data-i18n="pricing.subtitle">Simple and fair</p>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 data-i18n="pricing.personal">Personal</h3>
-                        <div class="price">
-                            <span class="price-value" data-i18n="pricing.free">Free</span>
+                <div class="hero-visual" data-reveal>
+                    <div class="stage" id="hero-stage">
+                        <figure class="window window-main">
+                            <div class="window-bar"><span></span><span></span><span></span><em>Trovul</em></div>
+                            <img src="media/mixer.webp" width="1500" height="900"
+                                alt="Trovul's mixer: a dial, mute and output for every app on both PCs">
+                        </figure>
+                        <figure class="float float-flyout">
+                            <img src="media/flyout.webp" width="360" height="500" loading="lazy"
+                                alt="The tray mixer: master and the other PC's sound, one click from the taskbar">
+                        </figure>
+                        <div class="float float-toast" role="img" aria-label="Pop-up: Linked to STREAM-PC">
+                            <span class="toast-icon"><svg class="icon"><use href="#i-link" /></svg></span>
+                            <span>
+                                <strong data-i18n="hero.toast.t">Linked to STREAM-PC</strong>
+                                <small data-i18n="hero.toast.s">Sound, keyboard and mouse are ready.</small>
+                            </span>
+                        </div>
+                        <div class="float float-latency" aria-hidden="true">
+                            <span class="lat-wave"><i></i><i></i><i></i><i></i><i></i></span>
+                            <span><b>48 ms</b> <small data-i18n="hero.latency">STREAM-PC → headset</small></span>
                         </div>
                     </div>
-                    <ul class="pricing-features">
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.personal.devices">2 devices</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.personal.stereo">Stereo streaming</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.personal.discovery">Auto-discovery</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.personal.updates">Automatic updates</span></li>
-                        <li class="muted">✗ <span data-i18n="pricing.personal.noMixer">Virtual mixer</span></li>
-                        <li class="muted">✗ <span data-i18n="pricing.personal.noRouting">Per-app routing</span></li>
-                    </ul>
-                    <a href="#waitlist" class="btn-pricing" data-i18n="pricing.btn.free">Start Free</a>
                 </div>
+            </div>
 
-                <div class="pricing-card featured">
-                    <div class="pricing-badge" data-i18n="pricing.popular">Popular</div>
-                    <div class="pricing-header">
-                        <h3 data-i18n="pricing.pro">Pro</h3>
-                        <div class="price">
-                            <span class="price-value">$9.99</span>
-                            <span class="price-period" data-i18n="pricing.month">/month</span>
+            <div class="container">
+                <dl class="facts" data-reveal>
+                    <div><dt>~30 ms</dt><dd data-i18n="facts.latency">audio between the PCs in Low mode</dd></div>
+                    <div><dt>48 kHz</dt><dd data-i18n="facts.quality">uncompressed stereo, nothing squeezed</dd></div>
+                    <div><dt>6 MB</dt><dd data-i18n="facts.size">installer, runs quietly in the tray</dd></div>
+                    <div><dt>0</dt><dd data-i18n="facts.cables">cables, adapters or extra hardware</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- REPLACES -->
+        <section class="section replaces" id="replaces">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="rep.kicker">Why Trovul</p>
+                    <h2 data-i18n="rep.title">The dual-PC setup, without the pile of hardware</h2>
+                    <p data-i18n="rep.lead">Running two PCs today means a desk full of gear and a stack of apps that don't know
+                        about each other. Trovul does it all in one app on each PC.</p>
+                </header>
+                <div class="versus" data-reveal>
+                    <div class="versus-col before">
+                        <h3 data-i18n="rep.before">Today</h3>
+                        <ul>
+                            <li><svg class="icon"><use href="#i-sliders" /></svg><span data-i18n="rep.b1">A hardware mixer or audio interface to hear both PCs</span><em>$250–500</em></li>
+                            <li><svg class="icon"><use href="#i-cable" /></svg><span data-i18n="rep.b2">Line cables and ground-loop isolators against hum</span><em>$20–60</em></li>
+                            <li><svg class="icon"><use href="#i-keyboard" /></svg><span data-i18n="rep.b3">A KVM switch, or a second keyboard and mouse</span><em>$50–200</em></li>
+                            <li><svg class="icon"><use href="#i-layers" /></svg><span data-i18n="rep.b4">Virtual cables, mouse-sharing and clipboard apps glued together</span><em data-i18n="rep.b4c">hours</em></li>
+                        </ul>
+                        <p class="versus-note" data-i18n="rep.note">Typical street prices.</p>
+                    </div>
+                    <div class="versus-arrow" aria-hidden="true"><svg class="icon"><use href="#i-arrow" /></svg></div>
+                    <div class="versus-col after">
+                        <h3><svg class="brand-mark"><use href="#logo" /></svg> <span data-i18n="rep.after">With Trovul</span></h3>
+                        <ul>
+                            <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="rep.a1">One app on each PC, paired with one click</span></li>
+                            <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="rep.a2">Both PCs in the headset you already own</span></li>
+                            <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="rep.a3">A mixer for every app, on both PCs, in one window</span></li>
+                            <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="rep.a4">One keyboard and mouse, one clipboard, all screens</span></li>
+                        </ul>
+                        <p class="versus-price"><b data-i18n="rep.zero">No extra hardware.</b> <span data-i18n="rep.zero2">Just your network.</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="section features" id="features">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="feat.kicker">What it does</p>
+                    <h2 data-i18n="feat.title">Everything two PCs should share</h2>
+                    <p data-i18n="feat.lead">Sound, controls and content flow over one link. Pair once, and it's all there
+                        every time the PCs start.</p>
+                </header>
+
+                <div class="bento">
+                    <article class="card card-xl" data-reveal>
+                        <div class="card-copy">
+                            <span class="chip chip-violet"><svg class="icon"><use href="#i-sliders" /></svg><span data-i18n="f.mixer.tag">Mixer</span></span>
+                            <h3 data-i18n="f.mixer.t">A real mixer for both PCs</h3>
+                            <p data-i18n="f.mixer.d">Every app on both PCs gets a dial, a mute and its own output device. Save
+                                scenes like Game, Stream and Meeting and switch everything in one click — from the app, the
+                                tray or a Stream Deck.</p>
+                        </div>
+                        <button type="button" class="shot shot-mixer" data-zoom="media/mixer.webp" aria-label="Enlarge the mixer screenshot">
+                            <img src="media/mixer.webp" width="1500" height="900" loading="lazy" alt="The Trovul mixer with dials for both PCs">
+                        </button>
+                    </article>
+
+                    <article class="card card-audio" data-reveal>
+                        <span class="chip chip-violet"><svg class="icon"><use href="#i-headphones" /></svg><span data-i18n="f.audio.tag">Audio</span></span>
+                        <h3 data-i18n="f.audio.t">Both PCs in one headset</h3>
+                        <p data-i18n="f.audio.d">Play the other PC's sound on this one, or send yours there. About 30 ms on a
+                            wired network, uncompressed 48 kHz stereo, back on its own after sleep or restarts.</p>
+                        <div class="flow" id="flow" data-dir="receive">
+                            <div class="flow-pc"><svg class="icon"><use href="#i-monitor" /></svg><span>GAMING-RIG</span></div>
+                            <div class="flow-line"><i></i><i></i><i></i><i></i></div>
+                            <div class="flow-pc"><svg class="icon"><use href="#i-monitor" /></svg><span>STREAM-PC</span></div>
+                        </div>
+                        <div class="segmented" role="group" aria-label="Where the sound goes">
+                            <button type="button" data-dir="receive" class="on"><svg class="icon"><use href="#i-headphones" /></svg><span data-i18n="f.audio.hear">Hear here</span></button>
+                            <button type="button" data-dir="send"><svg class="icon"><use href="#i-send" /></svg><span data-i18n="f.audio.send">Send</span></button>
+                            <button type="button" data-dir="off"><span data-i18n="f.audio.off">Off</span></button>
+                        </div>
+                    </article>
+
+                    <article class="card card-input" data-reveal>
+                        <span class="chip chip-cyan"><svg class="icon"><use href="#i-pointer" /></svg><span data-i18n="f.input.tag">Keyboard &amp; mouse</span></span>
+                        <h3 data-i18n="f.input.t">One keyboard and mouse for every screen</h3>
+                        <p data-i18n="f.input.d">Arrange the screens like your desk and just move across. Game mode keeps the
+                            pointer inside your game; admin windows, UAC prompts and the lock screen work too.</p>
+                        <button type="button" class="shot shot-input" data-zoom="media/input.webp" aria-label="Enlarge the screen arrangement screenshot">
+                            <img src="media/input.webp" width="1280" height="800" loading="lazy" alt="Screen arrangement with the other PC's monitor between this PC's two">
+                        </button>
+                    </article>
+
+                    <article class="card card-apps" data-reveal>
+                        <span class="chip chip-emerald"><svg class="icon"><use href="#i-send" /></svg><span data-i18n="f.apps.tag">Stream mix</span></span>
+                        <h3 data-i18n="f.apps.t">Your stream mix, separate from your headset</h3>
+                        <p data-i18n="f.apps.d">Choose which apps go to the other PC, each at its own level. Viewers hear the
+                            game and your team — not your music. <em>Windows 11.</em></p>
+                        <button type="button" class="shot shot-apps" data-zoom="media/mixer-apps.webp" aria-label="Enlarge the stream mix screenshot">
+                            <img src="media/mixer-apps.webp" width="1500" height="900" loading="lazy" alt="Choosing which apps go to the other PC">
+                        </button>
+                    </article>
+
+                    <article class="card card-follow" data-reveal>
+                        <span class="chip chip-cyan"><svg class="icon"><use href="#i-crosshair" /></svg><span data-i18n="f.follow.tag">Follow the pointer</span></span>
+                        <h3 data-i18n="f.follow.t">The PC you're using gets louder</h3>
+                        <p data-i18n="f.follow.d">Move to the other PC's screen and its sound steps forward in your headset;
+                            come back and it steps aside. Your volumes never move.</p>
+                        <div class="meters" aria-hidden="true">
+                            <div class="meter-row"><span>GAMING-RIG</span><div class="bar"><i class="m-local"></i></div></div>
+                            <div class="meter-row"><span>STREAM-PC</span><div class="bar"><i class="m-remote"></i></div></div>
+                        </div>
+                    </article>
+
+                    <article class="card card-clip" data-reveal>
+                        <span class="chip chip-violet"><svg class="icon"><use href="#i-clipboard" /></svg><span data-i18n="f.clip.tag">Clipboard</span></span>
+                        <h3 data-i18n="f.clip.t">Copy here, paste there</h3>
+                        <p data-i18n="f.clip.d">Text, images and whole folders move between the PCs. Big copies ask first and
+                            show their progress — nothing crosses the network by surprise.</p>
+                        <button type="button" class="shot shot-popups" data-zoom="media/popups.webp" aria-label="Enlarge the pop-ups screenshot">
+                            <img src="media/popups.webp" width="360" height="401" loading="lazy" alt="Pop-ups for files, an image and the link">
+                        </button>
+                    </article>
+
+                    <article class="card card-tray" data-reveal>
+                        <span class="chip chip-emerald"><svg class="icon"><use href="#i-window" /></svg><span data-i18n="f.tray.tag">Tray</span></span>
+                        <h3 data-i18n="f.tray.t">The mixer, one click away</h3>
+                        <p data-i18n="f.tray.d">Click the tray icon for volumes, mutes and scenes without opening the app.
+                            Small pop-ups tell you when a PC links or a file arrives.</p>
+                        <button type="button" class="shot shot-flyout" data-zoom="media/flyout.webp" aria-label="Enlarge the tray mixer screenshot">
+                            <img src="media/flyout.webp" width="360" height="500" loading="lazy" alt="The tray mixer">
+                        </button>
+                    </article>
+
+                    <article class="card card-deck" data-reveal>
+                        <span class="chip chip-violet"><svg class="icon"><use href="#i-grid" /></svg><span data-i18n="f.deck.tag">Stream Deck</span></span>
+                        <h3 data-i18n="f.deck.t">Made for Stream Deck</h3>
+                        <p data-i18n="f.deck.d">Keys for scenes, where the sound goes and mutes; dials for volume on
+                            Stream Deck +. For both PCs, with nothing to configure.</p>
+                        <div class="deck" aria-hidden="true">
+                            <span class="key k-violet"><svg class="icon"><use href="#i-gamepad" /></svg><small>Game</small></span>
+                            <span class="key k-violet"><svg class="icon"><use href="#i-sparkles" /></svg><small>Stream</small></span>
+                            <span class="key k-cyan lit"><svg class="icon"><use href="#i-headphones" /></svg><small>Hear</small></span>
+                            <span class="key k-emerald"><svg class="icon"><use href="#i-volume" /></svg><small>Discord</small></span>
+                            <span class="key k-red"><svg class="icon"><use href="#i-volume" /></svg><small>Music</small></span>
+                            <span class="key k-cyan"><svg class="icon"><use href="#i-crosshair" /></svg><small>Follow</small></span>
+                        </div>
+                    </article>
+
+                    <div class="mini-grid" data-reveal>
+                        <div class="mini"><svg class="icon"><use href="#i-lines" /></svg>
+                            <div><h4 data-i18n="m.duck.t">Quiet during calls</h4><p data-i18n="m.duck.d">The other PC steps back while someone talks on Discord or Teams.</p></div>
+                        </div>
+                        <div class="mini"><svg class="icon"><use href="#i-refresh" /></svg>
+                            <div><h4 data-i18n="m.update.t">Updates itself</h4><p data-i18n="m.update.d">Install a new version on one PC; the other gets it over the link.</p></div>
+                        </div>
+                        <div class="mini"><svg class="icon"><use href="#i-link" /></svg>
+                            <div><h4 data-i18n="m.pair.t">Pairs once</h4><p data-i18n="m.pair.d">The PCs find each other and reconnect by themselves after restarts, sleep or drops.</p></div>
+                        </div>
+                        <div class="mini"><svg class="icon"><use href="#i-shield" /></svg>
+                            <div><h4 data-i18n="m.local.t">Stays at home</h4><p data-i18n="m.local.d">Nothing goes through the internet. Only paired PCs are accepted.</p></div>
                         </div>
                     </div>
-                    <ul class="pricing-features">
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.pro.devices">Unlimited devices</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.pro.surround">5.1/7.1 audio</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.pro.mixer">Full virtual mixer</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.pro.routing">Per-app routing</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.pro.hotkeys">Global hotkeys</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.pro.support">Priority support</span></li>
-                    </ul>
-                    <a href="#waitlist" class="btn-pricing primary" data-i18n="pricing.btn.waitlist">Join Waitlist</a>
                 </div>
+            </div>
+        </section>
 
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 data-i18n="pricing.team">Team</h3>
-                        <div class="price">
-                            <span class="price-value">$29.99</span>
-                            <span class="price-period" data-i18n="pricing.month">/month</span>
-                        </div>
+        <!-- TRY IT -->
+        <section class="section try" id="try">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="try.kicker">Try it</p>
+                    <h2 data-i18n="try.title">Move your pointer across the desk</h2>
+                    <p data-i18n="try.lead">This is a desk with two PCs: GAMING-RIG has the outer screens, STREAM-PC the one in
+                        the middle. Glide across them and watch the keyboard, the pointer and your headset follow.</p>
+                </header>
+
+                <div class="desk" id="desk" data-reveal>
+                    <div class="desk-screens">
+                        <div class="screen s-local" data-pc="local"><b>1</b><span>GAMING-RIG</span></div>
+                        <div class="screen s-remote" data-pc="remote"><b>1</b><span>STREAM-PC</span></div>
+                        <div class="screen s-local" data-pc="local"><b>2</b><span>GAMING-RIG</span></div>
+                        <svg class="desk-pointer" id="desk-pointer" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pointer" /></svg>
                     </div>
-                    <ul class="pricing-features">
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.team.all">Everything in Pro</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.team.users">10 users</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.team.central">Central management</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.team.profiles">Shared profiles</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.team.analytics">Usage analytics</span></li>
-                        <li><svg
-                                style="width:14px;height:14px;stroke:#10b981;fill:none;vertical-align:middle;margin-right:6px">
-                                <use href="#icon-check" />
-                            </svg><span data-i18n="pricing.team.support">Dedicated support</span></li>
-                    </ul>
-                    <a href="#waitlist" class="btn-pricing" data-i18n="pricing.btn.contact">Contact</a>
+                    <div class="desk-status">
+                        <div class="status-card">
+                            <span class="status-label"><svg class="icon"><use href="#i-keyboard" /></svg><span data-i18n="try.kb">Keyboard &amp; mouse on</span></span>
+                            <strong id="desk-pc">GAMING-RIG</strong>
+                        </div>
+                        <div class="status-card">
+                            <span class="status-label"><svg class="icon"><use href="#i-headphones" /></svg><span data-i18n="try.hs">In your headset</span></span>
+                            <div class="hs-row"><span>GAMING-RIG</span><div class="bar"><i id="hs-local"></i></div><b id="hs-local-v">100%</b></div>
+                            <div class="hs-row"><span>STREAM-PC</span><div class="bar"><i id="hs-remote"></i></div><b id="hs-remote-v">30%</b></div>
+                        </div>
+                        <p class="desk-hint" data-i18n="try.hint">Tip: in the app, Scroll Lock locks the pointer to one PC, and Ctrl+Alt+Esc always brings it home.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- TECH SPECS -->
-    <section class="tech-specs" id="specs">
-        <div class="container">
-            <h2 class="section-title" data-i18n="specs.title">Technical Specifications</h2>
-            <p class="section-subtitle" data-i18n="specs.subtitle">For the nerds (like us)</p>
-
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <div class="spec-label" data-i18n="specs.latency">Latency</div>
-                    <div class="spec-value">&lt;10ms</div>
-                    <div class="spec-note" data-i18n="specs.latency.note">On local network</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-label" data-i18n="specs.bandwidth">Bandwidth</div>
-                    <div class="spec-value">~75 KB/s</div>
-                    <div class="spec-note" data-i18n="specs.bandwidth.note">Per stream</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-label" data-i18n="specs.cpu">CPU Usage</div>
-                    <div class="spec-value">&lt;3%</div>
-                    <div class="spec-note" data-i18n="specs.cpu.note">Receiver</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-label" data-i18n="specs.packets">Packet Rate</div>
-                    <div class="spec-value">~50/s</div>
-                    <div class="spec-note" data-i18n="specs.packets.note">Optimized UDP</div>
-                </div>
-            </div>
-
-            <div class="tech-stack">
-                <h4 data-i18n="specs.stack">Stack</h4>
-                <div class="stack-tags">
-                    <span class="stack-tag">Rust</span>
-                    <span class="stack-tag">Tauri v2</span>
-                    <span class="stack-tag">React</span>
-                    <span class="stack-tag">TypeScript</span>
-                    <span class="stack-tag">WASAPI</span>
-                    <span class="stack-tag">UDP</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WAITLIST -->
-    <section class="waitlist" id="waitlist">
-        <div class="container">
-            <div class="waitlist-content">
-                <h2 data-i18n="waitlist.title">Be the First to Test</h2>
-                <p data-i18n="waitlist.subtitle">Trovul is in active development. Join the waitlist for early access.
-                </p>
-
-                <form class="waitlist-form" id="waitlist-form" action="https://formsubmit.co/trovul.waitlist@gmail.com"
-                    method="POST">
-                    <!-- Formsubmit config -->
-                    <input type="hidden" name="_subject" value="🎉 New person on Trovul Waitlist!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://trovul.com/thanks.html">
-
-                    <input type="email" name="email" placeholder="your@email.com"
-                        data-i18n-placeholder="waitlist.placeholder" required>
-                    <button type="submit" class="btn-primary">
-                        <span data-i18n="waitlist.btn">Join Waitlist</span>
-                        <span class="btn-arrow">→</span>
+        <!-- FILM -->
+        <section class="section film" id="film">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="film.kicker">The film</p>
+                    <h2 data-i18n="film.title">One minute, the whole desk</h2>
+                    <p data-i18n="film.lead">The real app, recorded: linking the PCs, the mixer, the stream mix, keyboard and
+                        mouse, the tray and Stream Deck.</p>
+                </header>
+                <div class="player" data-reveal>
+                    <video id="film-video" preload="none" playsinline controls poster="media/trovul-tour-poster.webp"
+                        aria-label="Trovul product film">
+                        <source src="media/trovul-tour.mp4" type="video/mp4">
+                    </video>
+                    <button type="button" class="play-btn" id="play-btn" aria-label="Play the film">
+                        <span><svg class="icon icon-fill"><use href="#i-play" /></svg></span>
                     </button>
-                </form>
-
-                <p class="waitlist-note"><svg
-                        style="width:14px;height:14px;stroke:currentColor;fill:none;vertical-align:middle;margin-right:4px">
-                        <use href="#icon-check" />
-                    </svg><span data-i18n="waitlist.note">No spam. Only important updates.</span></p>
-
-                <div class="social-proof">
-                    <div class="proof-item">
-                        <span class="proof-number">500+</span>
-                        <span class="proof-label" data-i18n="waitlist.proof.waitlist">on waitlist</span>
-                    </div>
-                    <div class="proof-divider"></div>
-                    <div class="proof-item">
-                        <span class="proof-number">50+</span>
-                        <span class="proof-label" data-i18n="waitlist.proof.testers">beta testers</span>
-                    </div>
-                    <div class="proof-divider"></div>
-                    <div class="proof-item">
-                        <span class="proof-number">25K+</span>
-                        <span class="proof-label" data-i18n="waitlist.proof.packets">packets/day</span>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER -->
+        <!-- HOW -->
+        <section class="section how" id="how">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="how.kicker">Setup</p>
+                    <h2 data-i18n="how.title">Two minutes, three steps</h2>
+                </header>
+                <ol class="steps">
+                    <li data-reveal>
+                        <span class="step-n">1</span>
+                        <svg class="icon"><use href="#i-download" /></svg>
+                        <h3 data-i18n="how.1t">Install on both PCs</h3>
+                        <p data-i18n="how.1d">A 6 MB installer for Windows 10 or 11. The firewall is set up for you.</p>
+                    </li>
+                    <li data-reveal>
+                        <span class="step-n">2</span>
+                        <svg class="icon"><use href="#i-link" /></svg>
+                        <h3 data-i18n="how.2t">Pair with one click</h3>
+                        <p data-i18n="how.2d">The PCs find each other on your network. Accept once — they reconnect on their
+                            own from then on.</p>
+                    </li>
+                    <li data-reveal>
+                        <span class="step-n">3</span>
+                        <svg class="icon"><use href="#i-sparkles" /></svg>
+                        <h3 data-i18n="how.3t">Use them as one</h3>
+                        <p data-i18n="how.3d">Pick where the sound goes, glide across the screens, copy and paste. That's it.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- WHO -->
+        <section class="section who" id="who">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="who.kicker">Who it's for</p>
+                    <h2 data-i18n="who.title">Built for people with two PCs on one desk</h2>
+                </header>
+                <div class="who-grid">
+                    <article class="who-card" data-reveal>
+                        <svg class="icon"><use href="#i-sparkles" /></svg>
+                        <h3 data-i18n="who.stream.t">Dual-PC streamers</h3>
+                        <p data-i18n="who.stream.d">Game on one PC, stream from the other. One headset, one mouse, and a stream
+                            mix your viewers will thank you for.</p>
+                    </article>
+                    <article class="who-card" data-reveal>
+                        <svg class="icon"><use href="#i-gamepad" /></svg>
+                        <h3 data-i18n="who.game.t">Gamers with a work PC</h3>
+                        <p data-i18n="who.game.d">Keep Discord, music and work on the other PC and still hear everything in the
+                            game — without alt-tabbing out.</p>
+                    </article>
+                    <article class="who-card" data-reveal>
+                        <svg class="icon"><use href="#i-mic" /></svg>
+                        <h3 data-i18n="who.create.t">Creators &amp; podcasters</h3>
+                        <p data-i18n="who.create.d">Route each app where it belongs and keep a clean mix, with scenes for
+                            recording, streaming and calls.</p>
+                    </article>
+                    <article class="who-card" data-reveal>
+                        <svg class="icon"><use href="#i-code" /></svg>
+                        <h3 data-i18n="who.dev.t">Developers &amp; traders</h3>
+                        <p data-i18n="who.dev.d">Two machines, one keyboard, one clipboard. Copy a log here, paste it there;
+                            hear the build finish on the other PC.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH -->
+        <section class="section tech" id="tech">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="tech.kicker">Under the hood</p>
+                    <h2 data-i18n="tech.title">Our own real-time engine</h2>
+                    <p data-i18n="tech.lead">No virtual audio drivers, no third-party mouse tools. Trovul captures, moves and
+                        plays sound with its own engine written in Rust, and speaks its own protocol between the PCs.</p>
+                </header>
+                <div class="specs" data-reveal>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.lat">Latency</span><span class="spec-v">30 · 50 · 120 ms</span><span class="spec-n" data-i18n="spec.lat.n">Low, Balanced and Stable modes</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.audio">Audio</span><span class="spec-v">48 kHz · 16-bit</span><span class="spec-n" data-i18n="spec.audio.n">Uncompressed stereo in 5 ms packets</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.buffer">Playback</span><span class="spec-v" data-i18n="spec.buffer.v">Adaptive</span><span class="spec-n" data-i18n="spec.buffer.n">Jitter buffer with clock-drift correction</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.net">Network</span><span class="spec-v">LAN</span><span class="spec-n" data-i18n="spec.net.n">Ethernet or Wi-Fi, auto-discovery</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.sec">Pairing</span><span class="spec-v">HMAC-SHA256</span><span class="spec-n" data-i18n="spec.sec.n">Paired once, proven on every connection</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.upd">Updates</span><span class="spec-v">SHA-256</span><span class="spec-n" data-i18n="spec.upd.n">Over the link, checked before installing</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.os">Platform</span><span class="spec-v">Windows 10 · 11</span><span class="spec-n" data-i18n="spec.os.n">64-bit; per-app sending on 11</span></div>
+                    <div class="spec"><span class="spec-k" data-i18n="spec.size">Footprint</span><span class="spec-v">6 MB</span><span class="spec-n" data-i18n="spec.size.n">Native app, lives in the tray</span></div>
+                </div>
+                <div class="stack" data-reveal>
+                    <span>Rust</span><span>Tauri</span><span>React</span><span>TypeScript</span><span>WASAPI</span><span>Core Audio</span><span>Win32 Input</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROADMAP -->
+        <section class="section roadmap" id="roadmap">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="kicker" data-i18n="road.kicker">What's next</p>
+                    <h2 data-i18n="road.title">Where Trovul is going</h2>
+                </header>
+                <div class="road" data-reveal>
+                    <div class="road-item done"><span class="road-state" data-i18n="road.ready">Ready</span><h4 data-i18n="road.r1">Audio, mixer, keyboard &amp; mouse, clipboard &amp; files, Stream Deck</h4></div>
+                    <div class="road-item"><span class="road-state" data-i18n="road.next">Next</span><h4 data-i18n="road.n1">Drag files straight across the screens</h4></div>
+                    <div class="road-item"><span class="road-state" data-i18n="road.next">Next</span><h4 data-i18n="road.n2">The mixer on your phone</h4></div>
+                    <div class="road-item"><span class="road-state" data-i18n="road.next">Next</span><h4 data-i18n="road.n3">Scenes that follow the app in front</h4></div>
+                    <div class="road-item"><span class="road-state" data-i18n="road.later">Later</span><h4 data-i18n="road.l1">The other PC's screen in a window</h4></div>
+                    <div class="road-item"><span class="road-state" data-i18n="road.later">Later</span><h4 data-i18n="road.l2">One microphone for both PCs</h4></div>
+                    <div class="road-item"><span class="road-state" data-i18n="road.later">Later</span><h4 data-i18n="road.l3">Three or more PCs, and Mac</h4></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPANIES -->
+        <section class="section companies" id="companies">
+            <div class="container">
+                <div class="companies-box" data-reveal>
+                    <div class="companies-copy">
+                        <p class="kicker" data-i18n="co.kicker">For companies</p>
+                        <h2 data-i18n="co.title">A complete product, ready for a bigger stage</h2>
+                        <p class="companies-lead" data-i18n="co.lead">Trovul is a working, polished Windows product with its own
+                            real-time technology — not a prototype. We're open to conversations with companies that want
+                            to take it further.</p>
+                        <ul class="co-list">
+                            <li><svg class="icon"><use href="#i-cpu" /></svg>
+                                <div><h4 data-i18n="co.1t">Proprietary technology</h4><p data-i18n="co.1d">Real-time audio engine,
+                                        input sharing and a LAN protocol built from scratch in Rust. No third-party drivers to
+                                        license.</p></div></li>
+                            <li><svg class="icon"><use href="#i-layers" /></svg>
+                                <div><h4 data-i18n="co.2t">A platform, not a feature</h4><p data-i18n="co.2d">Audio, mixer, keyboard
+                                        &amp; mouse, clipboard and updates on one link — plus a local API and a Stream Deck
+                                        plugin to build on.</p></div></li>
+                            <li><svg class="icon"><use href="#i-headphones" /></svg>
+                                <div><h4 data-i18n="co.3t">A natural fit</h4><p data-i18n="co.3d">For makers of headsets, audio
+                                        interfaces and stream controllers, gaming-PC builders, and KVM or remote-desktop
+                                        vendors — software that makes their hardware and ecosystems stickier.</p></div></li>
+                        </ul>
+                        <div class="co-tags">
+                            <span data-i18n="co.t1">Acquisition</span><span data-i18n="co.t2">Licensing</span><span data-i18n="co.t3">OEM bundling</span><span data-i18n="co.t4">Strategic partnership</span>
+                        </div>
+                    </div>
+
+                    <form class="form co-form" id="company-form" novalidate>
+                        <h3 data-i18n="co.form.t">Talk to us</h3>
+                        <p class="form-sub" data-i18n="co.form.s">We answer every company inquiry personally.</p>
+                        <div class="field-row">
+                            <label class="field"><span data-i18n="co.f.name">Name</span><input name="name" autocomplete="name" required></label>
+                            <label class="field"><span data-i18n="co.f.company">Company</span><input name="company" autocomplete="organization" required></label>
+                        </div>
+                        <label class="field"><span data-i18n="co.f.email">Work email</span><input type="email" name="email" autocomplete="email" required></label>
+                        <label class="field"><span data-i18n="co.f.interest">Interest</span>
+                            <select name="interest">
+                                <option value="Acquisition" data-i18n="co.t1">Acquisition</option>
+                                <option value="Licensing" data-i18n="co.t2">Licensing</option>
+                                <option value="OEM bundling" data-i18n="co.t3">OEM bundling</option>
+                                <option value="Partnership" data-i18n="co.t4">Strategic partnership</option>
+                                <option value="Press" data-i18n="co.t5">Press</option>
+                                <option value="Other" data-i18n="co.t6">Other</option>
+                            </select>
+                        </label>
+                        <label class="field"><span data-i18n="co.f.msg">Message</span><textarea name="message" rows="3" data-i18n-ph="co.f.msg.ph" placeholder="What would you like to explore?"></textarea></label>
+                        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <button type="submit" class="btn btn-primary btn-block"><span data-i18n="co.f.send">Send</span><svg class="icon"><use href="#i-arrow" /></svg></button>
+                        <p class="form-msg" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section faq" id="faq">
+            <div class="container narrow">
+                <header class="section-head" data-reveal>
+                    <p class="kicker">FAQ</p>
+                    <h2 data-i18n="faq.title">Questions, answered</h2>
+                </header>
+                <div class="faq-list" data-reveal>
+                    <details>
+                        <summary><span data-i18n="faq.1q">Do I need extra hardware or cables?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.1a">No. Both PCs only need to be on the same network, over Ethernet or Wi-Fi. Trovul
+                            plays through the headset, speakers and devices you already have.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faq.2q">Which versions of Windows?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.2a">Windows 10 and 11, 64-bit. Sending only the apps you choose needs Windows 11 on the
+                            PC that sends; everything else works on both.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faq.3q">Does my audio go over the internet?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.3a">No. The PCs talk directly to each other on your local network, and only PCs you
+                            paired are accepted.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faq.4q">How much delay is there?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.4a">About 30 ms in Low mode on a wired network and 50 ms by default. On a busy Wi-Fi,
+                            Stable mode adds a little delay and removes the dropouts. Trovul shows the live figure and
+                            suggests the right mode.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faq.5q">Does it work with games?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.5a">Yes. Any app that plays sound shows up in the mixer, games included. Game mode
+                            keeps the pointer inside a game until you leave it, and pop-ups never appear over a full-screen
+                            game.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faq.6q">Does it replace Mouse Without Borders or Synergy?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.6a">For two PCs, yes: keyboard and mouse sharing, the clipboard and files are built in,
+                            on the same link as the sound — including admin windows, UAC prompts and the lock screen.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faq.7q">When can I try it?</span><svg class="icon"><use href="#i-chevron" /></svg></summary>
+                        <p data-i18n="faq.7a">Trovul is in private testing now. Join the waitlist and you'll hear from us as soon
+                            as early access opens.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAITLIST -->
+        <section class="section waitlist" id="waitlist">
+            <div class="container">
+                <div class="waitlist-box" data-reveal>
+                    <svg class="waitlist-mark"><use href="#logo" /></svg>
+                    <h2 data-i18n="wl.title">Be among the first to try it</h2>
+                    <p data-i18n="wl.lead">Trovul is in private testing. Leave your email and we'll let you know when early
+                        access opens.</p>
+                    <form class="form wl-form" id="waitlist-form" novalidate>
+                        <div class="wl-row">
+                            <input type="email" name="email" required autocomplete="email" placeholder="you@email.com" data-i18n-ph="wl.ph" aria-label="Email">
+                            <select name="setup" aria-label="Your setup">
+                                <option value="" data-i18n="wl.s0">Your setup (optional)</option>
+                                <option value="Gaming + streaming PC" data-i18n="wl.s1">Gaming + streaming PC</option>
+                                <option value="Gaming + work PC" data-i18n="wl.s2">Gaming + work PC</option>
+                                <option value="Creator / studio" data-i18n="wl.s3">Creator / studio</option>
+                                <option value="Developer / office" data-i18n="wl.s4">Developer / office</option>
+                                <option value="Other" data-i18n="wl.s5">Other</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary"><span data-i18n="wl.btn">Join the waitlist</span><svg class="icon"><use href="#i-arrow" /></svg></button>
+                        </div>
+                        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <p class="form-msg" role="status" aria-live="polite"></p>
+                    </form>
+                    <p class="wl-note"><svg class="icon"><use href="#i-check" /></svg><span data-i18n="wl.note">No spam — only the news that matters.</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="img/logo-small.png" alt="Trovul" class="logo-icon">
-                    <span class="logo-text">Trovul</span>
-                    <p class="footer-tagline" data-i18n="footer.tagline">"Because audio shouldn't need cables."</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#features" data-i18n="footer.features">Features</a>
-                    <a href="#pricing" data-i18n="footer.pricing">Pricing</a>
-                    <a href="#specs" data-i18n="footer.specs">Specs</a>
-                    <a href="#waitlist" data-i18n="footer.waitlist">Waitlist</a>
-                </div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="#top" class="brand"><svg class="brand-mark"><use href="#logo" /></svg><span>Trovul</span></a>
+                <p data-i18n="foot.tag">Two PCs. One desk.</p>
             </div>
-            <div class="footer-bottom">
-                <p data-i18n="footer.copyright">© 2026 Trovul. All rights reserved.</p>
-            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#film" data-i18n="nav.film">Film</a>
+                <a href="#tech" data-i18n="nav.tech">Technology</a>
+                <a href="#companies" data-i18n="nav.companies">For companies</a>
+                <a href="#waitlist" data-i18n="foot.wl">Waitlist</a>
+            </nav>
+            <p class="footer-copy"><span>© <span id="year">2026</span> Trovul.</span> <span data-i18n="foot.rights">All rights reserved.</span> <span data-i18n="foot.win">Windows is a trademark of Microsoft; Stream Deck of Corsair.</span></p>
         </div>
     </footer>
 
-    <script src="js/i18n.js"></script>
-    <script src="js/app.js"></script>
+    <div class="lightbox" id="lightbox" hidden>
+        <button type="button" class="lightbox-close" aria-label="Close"><svg class="icon"><use href="#i-x" /></svg></button>
+        <img alt="">
+    </div>
 
-    <!-- Firebase -->
+    <script src="js/lang.js?v=1"></script>
+    <script src="js/site.js?v=1"></script>
+
+    <!-- Firebase Analytics -->
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
+        const app = initializeApp({
             apiKey: "AIzaSyBORWnlDtH3iqIf0mLSN130us2xMb2MXVE",
             authDomain: "trovul.firebaseapp.com",
             projectId: "trovul",
@@ -933,11 +707,8 @@
             messagingSenderId: "634075614534",
             appId: "1:634075614534:web:e35c86762d38282ef36947",
             measurementId: "G-MNTGTKN5KG"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        });
+        getAnalytics(app);
     </script>
 </body>
 

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank you — Trovul</title>
+    <title>Page not found — Trovul</title>
     <meta name="robots" content="noindex">
-    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
-    <link rel="icon" type="image/png" href="img/logo-small.png">
+    <link rel="icon" type="image/svg+xml" href="/img/logo.svg">
+    <link rel="icon" type="image/png" href="/img/logo-small.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=1">
+    <link rel="stylesheet" href="/css/site.css?v=1">
     <style>
         .done {
             min-height: 100vh;
@@ -65,8 +65,8 @@
                 <circle cx="40" cy="36" r="8" fill="#a78bfa" opacity="0.75" />
                 <circle cx="60" cy="64" r="8" fill="#22d3ee" />
             </svg>
-            <h1 id="title">You're on the list!</h1>
-            <p id="text">Thanks for your interest in Trovul. We'll let you know as soon as early access opens.</p>
+            <h1 id="title">This page took another route</h1>
+            <p id="text">The page you're looking for isn't here. Everything about Trovul is on the home page.</p>
             <a href="/" class="btn btn-primary btn-lg" id="back">Back to trovul.com</a>
         </div>
     </main>
@@ -75,9 +75,9 @@
         try { saved = localStorage.getItem("trovul.lang"); } catch { /* private mode */ }
         if (/^pt/i.test(saved || navigator.language || "")) {
             document.documentElement.lang = "pt-BR";
-            document.title = "Obrigado — Trovul";
-            document.getElementById("title").textContent = "Você está na lista!";
-            document.getElementById("text").textContent = "Obrigado pelo interesse no Trovul. Avisamos assim que o acesso antecipado abrir.";
+            document.title = "Página não encontrada — Trovul";
+            document.getElementById("title").textContent = "Esta página seguiu outro caminho";
+            document.getElementById("text").textContent = "A página que você procura não está aqui. Tudo sobre o Trovul está na página inicial.";
             document.getElementById("back").textContent = "Voltar para trovul.com";
         }
     </script>
