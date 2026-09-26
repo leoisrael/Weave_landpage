@@ -205,7 +205,7 @@
   });
 
   // ---------- Forms (Formsubmit) ----------
-  const ENDPOINT = "https://formsubmit.co/ajax/trovul.waitlist@gmail.com";
+  const ENDPOINT = "https://formsubmit.co/ajax/trovul@outlook.com";
 
   async function submit(form, payload, okKey) {
     const button = $("button[type=submit]", form);
