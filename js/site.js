@@ -81,93 +81,6 @@
     });
   });
 
-  // ---------- The desk demo ----------
-  const desk = $("#desk");
-  if (desk) {
-    const area = $(".desk-screens", desk);
-    const pointer = $("#desk-pointer");
-    const screens = $$(".screen", area);
-    const pcLabel = $("#desk-pc");
-    const hs = {
-      local: $("#hs-local"),
-      remote: $("#hs-remote"),
-      localV: $("#hs-local-v"),
-      remoteV: $("#hs-remote-v"),
-    };
-    let pos = { x: 60, y: 80 };
-    let target = { x: 60, y: 80 };
-    let userUntil = 0;
-    let current = null;
-    let running = false;
-    let start = performance.now();
-
-    const setPc = (pc) => {
-      if (pc === current) return;
-      current = pc;
-      const remote = pc === "remote";
-      pcLabel.textContent = remote ? "STREAM-PC" : "GAMING-RIG";
-      pcLabel.className = remote ? "remote" : "local";
-      pointer.style.setProperty("--pc", remote ? "rgba(34,211,238,.95)" : "rgba(167,139,250,.95)");
-      hs.local.style.width = remote ? "30%" : "100%";
-      hs.remote.style.width = remote ? "100%" : "30%";
-      hs.localV.textContent = remote ? "30%" : "100%";
-      hs.remoteV.textContent = remote ? "100%" : "30%";
-    };
-
-    const autoTarget = (now) => {
-      // A slow tour: across all three screens and back, with a gentle wave.
-      const w = area.clientWidth;
-      const h = area.clientHeight;
-      const phase = ((now - start) / 9000) % 1;
-      const tri = phase < 0.5 ? phase * 2 : 2 - phase * 2;
-      const eased = 0.5 - Math.cos(tri * Math.PI) / 2;
-      return { x: w * (0.08 + eased * 0.84), y: h * (0.5 + Math.sin(phase * Math.PI * 4) * 0.18) };
-    };
-
-    const frame = (now) => {
-      if (!running) return;
-      if (now > userUntil) target = autoTarget(now);
-      pos.x += (target.x - pos.x) * 0.18;
-      pos.y += (target.y - pos.y) * 0.18;
-      pointer.style.transform = `translate(${pos.x - 5}px, ${pos.y - 3}px)`;
-      const areaRect = area.getBoundingClientRect();
-      for (const s of screens) {
-        const r = s.getBoundingClientRect();
-        const inside = pos.x >= r.left - areaRect.left && pos.x <= r.right - areaRect.left;
-        s.classList.toggle("active", inside);
-        if (inside) setPc(s.dataset.pc);
-      }
-      requestAnimationFrame(frame);
-    };
-
-    const move = (e) => {
-      const r = area.getBoundingClientRect();
-      target = {
-        x: Math.max(0, Math.min(r.width, e.clientX - r.left)),
-        y: Math.max(0, Math.min(r.height, e.clientY - r.top)),
-      };
-      userUntil = performance.now() + 2500;
-    };
-    area.addEventListener("pointermove", move);
-    area.addEventListener("pointerdown", move);
-    area.addEventListener("pointerleave", () => {
-      userUntil = performance.now() + 600;
-      start = performance.now() - 9000 * (pos.x / Math.max(1, area.clientWidth)) * 0.5;
-    });
-
-    setPc("local");
-    const deskIo = new IntersectionObserver((entries) => {
-      const visible = entries.some((e) => e.isIntersecting);
-      if (visible && !running) {
-        running = true;
-        requestAnimationFrame(frame);
-      } else if (!visible) {
-        running = false;
-      }
-    });
-    deskIo.observe(desk);
-  }
-
   // ---------- Film ----------
   const video = $("#film-video");
   const playBtn = $("#play-btn");
@@ -249,32 +162,6 @@
       waitlist,
       { email, setup: waitlist.setup.value || "-", _subject: "Trovul — new person on the waitlist" },
       "form.wl.ok",
-    );
-  });
-
-  const company = $("#company-form");
-  company?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const required = ["name", "company", "email"];
-    const missing = required.find((n) => !company[n].value.trim() || !company[n].checkValidity());
-    if (missing) {
-      const msg = $(".form-msg", company);
-      msg.className = "form-msg err";
-      msg.textContent = t(missing === "email" ? "form.email" : "form.required");
-      company[missing].focus();
-      return;
-    }
-    submit(
-      company,
-      {
-        name: company.name.value.trim(),
-        company: company.company.value.trim(),
-        email: company.email.value.trim(),
-        interest: company.interest.value,
-        message: company.message.value.trim() || "-",
-        _subject: `Trovul — company inquiry (${company.interest.value})`,
-      },
-      "form.co.ok",
     );
   });
 

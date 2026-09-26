@@ -34,7 +34,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=2">
+    <link rel="stylesheet" href="css/site.css?v=3">
     <link rel="preload" as="image" href="media/mixer.webp" type="image/webp">
 
     <script type="application/ld+json">
@@ -121,10 +121,9 @@
             </a>
             <nav class="nav-links" id="nav-links" aria-label="Main">
                 <a href="#features" data-i18n="nav.features">Features</a>
-                <a href="#try" data-i18n="nav.try">Try it</a>
+                <a href="#input" data-i18n="nav.input">Keyboard &amp; mouse</a>
                 <a href="#film" data-i18n="nav.film">Film</a>
-                <a href="#tech" data-i18n="nav.tech">Technology</a>
-                <a href="#companies" data-i18n="nav.companies">For companies</a>
+                <a href="#details" data-i18n="nav.details">Details</a>
                 <a href="#faq" data-i18n="nav.faq">FAQ</a>
             </nav>
             <div class="nav-actions">
@@ -202,9 +201,9 @@
 
             <div class="container">
                 <dl class="facts" data-reveal>
-                    <div><dt>~30 ms</dt><dd data-i18n="facts.latency">audio between the PCs in Low mode</dd></div>
-                    <div><dt>48 kHz</dt><dd data-i18n="facts.quality">uncompressed stereo, nothing squeezed</dd></div>
-                    <div><dt>6 MB</dt><dd data-i18n="facts.size">installer, runs quietly in the tray</dd></div>
+                    <div><dt>~30 ms</dt><dd data-i18n="facts.latency">between the PCs — a delay you won't notice</dd></div>
+                    <div><dt>Hi-Fi</dt><dd data-i18n="facts.quality">sound, nothing compressed on the way</dd></div>
+                    <div><dt>2 min</dt><dd data-i18n="facts.setup">from install to hearing both PCs</dd></div>
                     <div><dt>0</dt><dd data-i18n="facts.cables">cables, adapters or extra hardware</dd></div>
                 </dl>
             </div>
@@ -273,7 +272,7 @@
                         <span class="chip chip-violet"><svg class="icon"><use href="#i-headphones" /></svg><span data-i18n="f.audio.tag">Audio</span></span>
                         <h3 data-i18n="f.audio.t">Both PCs in one headset</h3>
                         <p data-i18n="f.audio.d">Play the other PC's sound on this one, or send yours there. About 30 ms on a
-                            wired network, uncompressed 48 kHz stereo, back on its own after sleep or restarts.</p>
+                            wired network, CD-quality sound, back on its own after sleep or restarts.</p>
                         <div class="flow" id="flow" data-dir="receive">
                             <div class="flow-pc"><svg class="icon"><use href="#i-monitor" /></svg><span>GAMING-RIG</span></div>
                             <div class="flow-line"><i></i><i></i><i></i><i></i></div>
@@ -284,16 +283,6 @@
                             <button type="button" data-dir="send"><svg class="icon"><use href="#i-send" /></svg><span data-i18n="f.audio.send">Send</span></button>
                             <button type="button" data-dir="off"><span data-i18n="f.audio.off">Off</span></button>
                         </div>
-                    </article>
-
-                    <article class="card card-input" data-reveal>
-                        <span class="chip chip-cyan"><svg class="icon"><use href="#i-pointer" /></svg><span data-i18n="f.input.tag">Keyboard &amp; mouse</span></span>
-                        <h3 data-i18n="f.input.t">One keyboard and mouse for every screen</h3>
-                        <p data-i18n="f.input.d">Arrange the screens like your desk and just move across. Game mode keeps the
-                            pointer inside your game; admin windows, UAC prompts and the lock screen work too.</p>
-                        <button type="button" class="shot shot-input" data-zoom="media/input.webp" aria-label="Enlarge the screen arrangement screenshot">
-                            <img src="media/input.webp" width="1280" height="800" loading="lazy" alt="Screen arrangement with the other PC's monitor between this PC's two">
-                        </button>
                     </article>
 
                     <article class="card card-apps" data-reveal>
@@ -352,54 +341,41 @@
                         </div>
                     </article>
 
-                    <div class="mini-grid" data-reveal>
-                        <div class="mini"><svg class="icon"><use href="#i-lines" /></svg>
-                            <div><h4 data-i18n="m.duck.t">Quiet during calls</h4><p data-i18n="m.duck.d">The other PC steps back while someone talks on Discord or Teams.</p></div>
+                    <article class="card card-duck" data-reveal>
+                        <span class="chip chip-emerald"><svg class="icon"><use href="#i-lines" /></svg><span data-i18n="f.duck.tag">Calls</span></span>
+                        <h3 data-i18n="f.duck.t">Quiet during calls</h3>
+                        <p data-i18n="f.duck.d">When someone talks on Discord, Teams or Zoom, the other PC's sound steps
+                            back — and comes back when they stop.</p>
+                        <div class="meters" aria-hidden="true">
+                            <div class="meter-row"><span>DISCORD</span><div class="bar"><i class="d-voice"></i></div></div>
+                            <div class="meter-row"><span>STREAM-PC</span><div class="bar"><i class="d-other"></i></div></div>
                         </div>
-                        <div class="mini"><svg class="icon"><use href="#i-refresh" /></svg>
-                            <div><h4 data-i18n="m.update.t">Updates itself</h4><p data-i18n="m.update.d">Install a new version on one PC; the other gets it over the link.</p></div>
-                        </div>
-                        <div class="mini"><svg class="icon"><use href="#i-link" /></svg>
-                            <div><h4 data-i18n="m.pair.t">Pairs once</h4><p data-i18n="m.pair.d">The PCs find each other and reconnect by themselves after restarts, sleep or drops.</p></div>
-                        </div>
-                        <div class="mini"><svg class="icon"><use href="#i-shield" /></svg>
-                            <div><h4 data-i18n="m.local.t">Stays at home</h4><p data-i18n="m.local.d">Nothing goes through the internet. Only paired PCs are accepted.</p></div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- TRY IT -->
-        <section class="section try" id="try">
-            <div class="container">
-                <header class="section-head" data-reveal>
-                    <p class="kicker" data-i18n="try.kicker">Try it</p>
-                    <h2 data-i18n="try.title">Move your pointer across the desk</h2>
-                    <p data-i18n="try.lead">This is a desk with two PCs: GAMING-RIG has the outer screens, STREAM-PC the one in
-                        the middle. Glide across them and watch the keyboard, the pointer and your headset follow.</p>
-                </header>
-
-                <div class="desk" id="desk" data-reveal>
-                    <div class="desk-screens">
-                        <div class="screen s-local" data-pc="local"><b>1</b><span>GAMING-RIG</span></div>
-                        <div class="screen s-remote" data-pc="remote"><b>1</b><span>STREAM-PC</span></div>
-                        <div class="screen s-local" data-pc="local"><b>2</b><span>GAMING-RIG</span></div>
-                        <svg class="desk-pointer" id="desk-pointer" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pointer" /></svg>
-                    </div>
-                    <div class="desk-status">
-                        <div class="status-card">
-                            <span class="status-label"><svg class="icon"><use href="#i-keyboard" /></svg><span data-i18n="try.kb">Keyboard &amp; mouse on</span></span>
-                            <strong id="desk-pc">GAMING-RIG</strong>
-                        </div>
-                        <div class="status-card">
-                            <span class="status-label"><svg class="icon"><use href="#i-headphones" /></svg><span data-i18n="try.hs">In your headset</span></span>
-                            <div class="hs-row"><span>GAMING-RIG</span><div class="bar"><i id="hs-local"></i></div><b id="hs-local-v">100%</b></div>
-                            <div class="hs-row"><span>STREAM-PC</span><div class="bar"><i id="hs-remote"></i></div><b id="hs-remote-v">30%</b></div>
-                        </div>
-                        <p class="desk-hint" data-i18n="try.hint">Tip: in the app, Scroll Lock locks the pointer to one PC, and Ctrl+Alt+Esc always brings it home.</p>
-                    </div>
+        <!-- KEYBOARD & MOUSE -->
+        <section class="section spotlight" id="input">
+            <div class="container spotlight-grid">
+                <div class="spotlight-copy" data-reveal>
+                    <p class="kicker" data-i18n="in.kicker">Keyboard &amp; mouse</p>
+                    <h2 data-i18n="in.title">One keyboard and mouse for every screen</h2>
+                    <p class="spotlight-lead" data-i18n="in.lead">Place the other PC's screens where they really are on
+                        your desk and just move across. Your typing goes with the pointer.</p>
+                    <ul class="checks">
+                        <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="in.1">Arrange the screens by dragging them, like in Windows' display settings</span></li>
+                        <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="in.2">Game mode keeps the pointer inside your game</span></li>
+                        <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="in.3">Drag windows between your own monitors, even with the other PC's screen in between</span></li>
+                        <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="in.4">Works in installers, admin windows and on the lock screen</span></li>
+                        <li><svg class="icon"><use href="#i-check" /></svg><span data-i18n="in.5">Copy on one PC, paste on the other</span></li>
+                    </ul>
+                    <p class="spotlight-tip"><svg class="icon"><use href="#i-keyboard" /></svg><span data-i18n="in.tip">Scroll Lock keeps the pointer on one PC. Ctrl+Alt+Esc always brings it home.</span></p>
                 </div>
+                <button type="button" class="shot spotlight-shot" data-zoom="media/keyboard-mouse.webp" data-reveal aria-label="Enlarge the keyboard and mouse screenshot">
+                    <img src="media/keyboard-mouse.webp" width="1620" height="1110" loading="lazy"
+                        alt="Trovul's screen arrangement: the other PC's monitor between this PC's two, and the keyboard and mouse options">
+                </button>
             </div>
         </section>
 
@@ -436,7 +412,7 @@
                         <span class="step-n">1</span>
                         <svg class="icon"><use href="#i-download" /></svg>
                         <h3 data-i18n="how.1t">Install on both PCs</h3>
-                        <p data-i18n="how.1d">A 6 MB installer for Windows 10 or 11. The firewall is set up for you.</p>
+                        <p data-i18n="how.1d">A light installer for Windows 10 or 11. The firewall is set up for you.</p>
                     </li>
                     <li data-reveal>
                         <span class="step-n">2</span>
@@ -491,102 +467,22 @@
             </div>
         </section>
 
-        <!-- TECH -->
-        <section class="section tech" id="tech">
+        <!-- DETAILS -->
+        <section class="section details" id="details">
             <div class="container">
                 <header class="section-head" data-reveal>
-                    <p class="kicker" data-i18n="tech.kicker">Under the hood</p>
-                    <h2 data-i18n="tech.title">Our own real-time engine</h2>
-                    <p data-i18n="tech.lead">No virtual audio drivers, no third-party mouse tools. Trovul captures, moves and
-                        plays sound with its own engine written in Rust, and speaks its own protocol between the PCs.</p>
+                    <p class="kicker" data-i18n="det.kicker">Details</p>
+                    <h2 data-i18n="det.title">The details that make the difference</h2>
                 </header>
-                <div class="specs" data-reveal>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.lat">Latency</span><span class="spec-v">30 · 50 · 120 ms</span><span class="spec-n" data-i18n="spec.lat.n">Low, Balanced and Stable modes</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.audio">Audio</span><span class="spec-v">48 kHz · 16-bit</span><span class="spec-n" data-i18n="spec.audio.n">Uncompressed stereo in 5 ms packets</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.buffer">Playback</span><span class="spec-v" data-i18n="spec.buffer.v">Adaptive</span><span class="spec-n" data-i18n="spec.buffer.n">Jitter buffer with clock-drift correction</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.net">Network</span><span class="spec-v">LAN</span><span class="spec-n" data-i18n="spec.net.n">Ethernet or Wi-Fi, auto-discovery</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.sec">Pairing</span><span class="spec-v">HMAC-SHA256</span><span class="spec-n" data-i18n="spec.sec.n">Paired once, proven on every connection</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.upd">Updates</span><span class="spec-v">SHA-256</span><span class="spec-n" data-i18n="spec.upd.n">Over the link, checked before installing</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.os">Platform</span><span class="spec-v">Windows 10 · 11</span><span class="spec-n" data-i18n="spec.os.n">64-bit; per-app sending on 11</span></div>
-                    <div class="spec"><span class="spec-k" data-i18n="spec.size">Footprint</span><span class="spec-v">6 MB</span><span class="spec-n" data-i18n="spec.size.n">Native app, lives in the tray</span></div>
-                </div>
-                <div class="stack" data-reveal>
-                    <span>Rust</span><span>Tauri</span><span>React</span><span>TypeScript</span><span>WASAPI</span><span>Core Audio</span><span>Win32 Input</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ROADMAP -->
-        <section class="section roadmap" id="roadmap">
-            <div class="container">
-                <header class="section-head" data-reveal>
-                    <p class="kicker" data-i18n="road.kicker">What's next</p>
-                    <h2 data-i18n="road.title">Where Trovul is going</h2>
-                </header>
-                <div class="road" data-reveal>
-                    <div class="road-item done"><span class="road-state" data-i18n="road.ready">Ready</span><h4 data-i18n="road.r1">Audio, mixer, keyboard &amp; mouse, clipboard &amp; files, Stream Deck</h4></div>
-                    <div class="road-item"><span class="road-state" data-i18n="road.next">Next</span><h4 data-i18n="road.n1">Drag files straight across the screens</h4></div>
-                    <div class="road-item"><span class="road-state" data-i18n="road.next">Next</span><h4 data-i18n="road.n2">The mixer on your phone</h4></div>
-                    <div class="road-item"><span class="road-state" data-i18n="road.next">Next</span><h4 data-i18n="road.n3">Scenes that follow the app in front</h4></div>
-                    <div class="road-item"><span class="road-state" data-i18n="road.later">Later</span><h4 data-i18n="road.l1">The other PC's screen in a window</h4></div>
-                    <div class="road-item"><span class="road-state" data-i18n="road.later">Later</span><h4 data-i18n="road.l2">One microphone for both PCs</h4></div>
-                    <div class="road-item"><span class="road-state" data-i18n="road.later">Later</span><h4 data-i18n="road.l3">Three or more PCs, and Mac</h4></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMPANIES -->
-        <section class="section companies" id="companies">
-            <div class="container">
-                <div class="companies-box" data-reveal>
-                    <div class="companies-copy">
-                        <p class="kicker" data-i18n="co.kicker">For companies</p>
-                        <h2 data-i18n="co.title">A complete product, ready for a bigger stage</h2>
-                        <p class="companies-lead" data-i18n="co.lead">Trovul is a working, polished Windows product with its own
-                            real-time technology — not a prototype. We're open to conversations with companies that want
-                            to take it further.</p>
-                        <ul class="co-list">
-                            <li><svg class="icon"><use href="#i-cpu" /></svg>
-                                <div><h4 data-i18n="co.1t">Proprietary technology</h4><p data-i18n="co.1d">Real-time audio engine,
-                                        input sharing and a LAN protocol built from scratch in Rust. No third-party drivers to
-                                        license.</p></div></li>
-                            <li><svg class="icon"><use href="#i-layers" /></svg>
-                                <div><h4 data-i18n="co.2t">A platform, not a feature</h4><p data-i18n="co.2d">Audio, mixer, keyboard
-                                        &amp; mouse, clipboard and updates on one link — plus a local API and a Stream Deck
-                                        plugin to build on.</p></div></li>
-                            <li><svg class="icon"><use href="#i-headphones" /></svg>
-                                <div><h4 data-i18n="co.3t">A natural fit</h4><p data-i18n="co.3d">For makers of headsets, audio
-                                        interfaces and stream controllers, gaming-PC builders, and KVM or remote-desktop
-                                        vendors — software that makes their hardware and ecosystems stickier.</p></div></li>
-                        </ul>
-                        <div class="co-tags">
-                            <span data-i18n="co.t1">Acquisition</span><span data-i18n="co.t2">Licensing</span><span data-i18n="co.t3">OEM bundling</span><span data-i18n="co.t4">Strategic partnership</span>
-                        </div>
-                    </div>
-
-                    <form class="form co-form" id="company-form" novalidate>
-                        <h3 data-i18n="co.form.t">Talk to us</h3>
-                        <p class="form-sub" data-i18n="co.form.s">We answer every company inquiry personally.</p>
-                        <div class="field-row">
-                            <label class="field"><span data-i18n="co.f.name">Name</span><input name="name" autocomplete="name" required></label>
-                            <label class="field"><span data-i18n="co.f.company">Company</span><input name="company" autocomplete="organization" required></label>
-                        </div>
-                        <label class="field"><span data-i18n="co.f.email">Work email</span><input type="email" name="email" autocomplete="email" required></label>
-                        <label class="field"><span data-i18n="co.f.interest">Interest</span>
-                            <select name="interest">
-                                <option value="Acquisition" data-i18n="co.t1">Acquisition</option>
-                                <option value="Licensing" data-i18n="co.t2">Licensing</option>
-                                <option value="OEM bundling" data-i18n="co.t3">OEM bundling</option>
-                                <option value="Partnership" data-i18n="co.t4">Strategic partnership</option>
-                                <option value="Press" data-i18n="co.t5">Press</option>
-                                <option value="Other" data-i18n="co.t6">Other</option>
-                            </select>
-                        </label>
-                        <label class="field"><span data-i18n="co.f.msg">Message</span><textarea name="message" rows="3" data-i18n-ph="co.f.msg.ph" placeholder="What would you like to explore?"></textarea></label>
-                        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <button type="submit" class="btn btn-primary btn-block"><span data-i18n="co.f.send">Send</span><svg class="icon"><use href="#i-arrow" /></svg></button>
-                        <p class="form-msg" role="status" aria-live="polite"></p>
-                    </form>
+                <div class="details-grid" data-reveal>
+                    <div class="detail"><b>~30 ms</b><h3 data-i18n="det.1t">A delay you won't notice</h3><p data-i18n="det.1d">On a wired network; 50 ms by default. On a busy Wi-Fi, Stable mode keeps the sound smooth.</p></div>
+                    <div class="detail"><b>Hi-Fi</b><h3 data-i18n="det.2t">The sound as it left</h3><p data-i18n="det.2d">CD-quality sound, nothing compressed on the way to your headset.</p></div>
+                    <div class="detail"><b data-i18n="det.3v">Wi-Fi or cable</b><h3 data-i18n="det.3t">Your home network</h3><p data-i18n="det.3d">No cable between the PCs and no adapters. Wired is best, Wi-Fi works.</p></div>
+                    <div class="detail"><b data-i18n="det.4v">100% local</b><h3 data-i18n="det.4t">Nothing goes to the internet</h3><p data-i18n="det.4d">The PCs talk directly to each other, and only PCs you paired are accepted.</p></div>
+                    <div class="detail"><b>2 min</b><h3 data-i18n="det.5t">Quick to set up</h3><p data-i18n="det.5d">Install on both PCs and pair with one click. The firewall is set up for you.</p></div>
+                    <div class="detail"><b data-i18n="det.6v">Automatic</b><h3 data-i18n="det.6t">Always reconnects</h3><p data-i18n="det.6d">After restarts, sleep or a network drop, everything comes back on its own.</p></div>
+                    <div class="detail"><b data-i18n="det.7v">1 install</b><h3 data-i18n="det.7t">Updates itself</h3><p data-i18n="det.7d">Update one PC and the other gets the new version by itself.</p></div>
+                    <div class="detail"><b>Windows</b><h3 data-i18n="det.8t">10 and 11</h3><p data-i18n="det.8d">Light, starts with Windows and stays out of the way in the tray.</p></div>
                 </div>
             </div>
         </section>
@@ -678,9 +574,9 @@
             </div>
             <nav class="footer-links" aria-label="Footer">
                 <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#input" data-i18n="nav.input">Keyboard &amp; mouse</a>
                 <a href="#film" data-i18n="nav.film">Film</a>
-                <a href="#tech" data-i18n="nav.tech">Technology</a>
-                <a href="#companies" data-i18n="nav.companies">For companies</a>
+                <a href="#details" data-i18n="nav.details">Details</a>
                 <a href="#waitlist" data-i18n="foot.wl">Waitlist</a>
             </nav>
             <p class="footer-copy"><span>© <span id="year">2026</span> Trovul.</span> <span data-i18n="foot.rights">All rights reserved.</span> <span data-i18n="foot.win">Windows is a trademark of Microsoft; Stream Deck of Corsair.</span></p>
@@ -692,8 +588,8 @@
         <img alt="">
     </div>
 
-    <script src="js/lang.js?v=1"></script>
-    <script src="js/site.js?v=3"></script>
+    <script src="js/lang.js?v=2"></script>
+    <script src="js/site.js?v=4"></script>
 
     <!-- Firebase Analytics -->
     <script type="module">
