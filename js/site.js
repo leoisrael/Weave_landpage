@@ -176,7 +176,10 @@
     playBtn.addEventListener("click", () => {
       video.play().catch(() => {});
     });
-    video.addEventListener("play", () => player.classList.add("playing"));
+    video.addEventListener("play", () => {
+      player.classList.add("playing");
+      video.controls = true;
+    });
     video.addEventListener("ended", () => player.classList.remove("playing"));
     video.addEventListener("error", () => player.classList.add("playing"), true);
   }
